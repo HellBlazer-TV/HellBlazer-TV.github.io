@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Hellblazer's Civilization 5 Drafter</title>
+<link href="civ5drafter.css" rel="stylesheet" type="text/css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="drafter.js"></script>
+</head>
+
+<body>
+	<div id="main">
+		<div id="header">
+			<p class="headline">Hellblazer's Civilization 5 Drafter</p>
+		</div>
+		
+		<form method="post">
+			<div id="playerdetails">
+			    <ul>
+			        <li>
+			            <label>Number of Players in Game</label>
+			            <select class="drafterdropbox" id="gameplayers">
+			                <option>1 Player</option>
+			                <option>2 Players</option>
+			                <option>3 Players</option>
+			                <option>4 Players</option>
+			                <option>5 Players</option>
+			                <option selected="selected">6 Players</option>
+			                <option>7 Players</option>
+			                <option>8 Players</option>
+			                <option>9 Players</option>
+			                <option>10 Players</option>
+			                <option>11 Players</option>
+			                <option>12 Players</option>
+			            </select>
+			        </li>
+			        <li>
+			            <label>Number of Random Picks</label>
+			            <select class="drafterdropbox" id="picks">
+			                <option>1 Pick</option>
+			                <option>2 Picks</option>
+			                <option>3 Picks</option>
+			                <option selected="selected">4 Picks</option>
+			                <option>5 Picks</option>
+			                <option>6 Picks</option>
+			                <option>7 Picks</option>
+			                <option>8 Picks</option>
+			                <option>9 Picks</option>
+			                <option>10 Picks</option>
+			            </select>
+			        </li>
+			    </ul>
+			</div>
+			
+			<div id="civselections">
+				<p class="selectorheadline">Allowed / Banned Civilizations</p>
+				<table id="civilizations">
+					<tr>
+						<td class="America"><img src="img/america.png"></img>America</td>
+						<td class="Arabia"><img src="img/arabia.png"></img>Arabia</td>
+						<td class="Armenia"><img src="img/armenia.png"></img>Armenia</td>
+						<td class="Assyria"><img src="img/assyria.png"></img>Assyria</td>
+						<td class="Australia"><img src="img/australia.png"></img>Australia</td>
+						<td class="Austria"><img src="img/austria.png"></img>Austria</td>
+						<td class="Ayyubids"><img src="img/unknown.png"></img>Ayyubids</td>					
+					</tr>
+					<tr>
+
+						<td class="Aztec"><img src="img/aztec.png"></img>Aztec</td>
+						<td class="Babylon"><img src="img/babylon.png"></img>Babylon</td>
+						<td class="Belgium"><img src="img/belgium.png"></img>Belgium</td>
+						<td class="Boers"><img src="img/boers.png"></img>Boers</td>
+						<td class="Brazil"><img src="img/brazil.png"></img>Brazil</td>
+						<td class="Bulgaria"><img src="img/bulgaria.png"></img>Bulgaria</td>
+						<td class="Burma"><img src="img/unknown.png"></img>Burma</td>
+					</tr>
+					<tr>
+						<td class="Byzantium"><img src="img/byzantium.png"></img>Byzantium</td>
+						<td class="Canada"><img src="img/canada.png"></img>Canada</td>
+						<td class="Carthage"><img src="img/carthage.png"></img>Carthage</td>
+						<td class="Celts"><img src="img/celts.png"></img>Celts</td>
+						<td class="China"><img src="img/china.png"></img>China</td>
+						<td class="Denmark"><img src="img/denmark.png"></img>Denmark</td>
+						<td class="Egypt"><img src="img/egypt.png"></img>Egypt</td>
+					</tr>
+					<tr>
+						
+					</tr>
+					<tr>
+						<td class="England"><img src="img/england.png"></img>England</td>
+						<td class="Ethiopia"><img src="img/ethiopia.png"></img>Ethiopia</td>
+						<td class="France"><img src="img/france.png"></img>France</td>
+						<td class="Franks"><img src="img/unknown.png"></img>Franks</td>
+						<td class="Germany"><img src="img/germany.png"></img>Germany</td>
+						<td class="Goths"><img src="img/unknown.png"></img>Goths</td>
+						<td class="Greece"><img src="img/greece.png"></img>Greece</td>
+					</tr>
+					<tr>
+						<td class="Hittites"><img src="img/hittites.png"></img>Hittites</td>
+						<td class="Hungary"><img src="img/unknown.png"></img>Hungary</td>
+						<td class="Huns"><img src="img/huns.png"></img>Huns</td>
+						<td class="Inca"><img src="img/inca.png"></img>Inca</td>
+						<td class="India"><img src="img/india.png"></img>India</td>
+						<td class="Indonesia"><img src="img/indonesia.png"></img>Indonesia</td>
+						<td class="Iroquois"><img src="img/iroquois.png"></img>Iroquois</td>
+					</tr>
+					<tr>
+						<td class="Italy"><img src="img/unknown.png"></img>Italy</td>
+						<td class="Japan"><img src="img/japan.png"></img>Japan</td>
+						<td class="Jerusalem"><img src="img/unknown.png"></img>Jerusalem</td>
+						<td class="Khmer"><img src="img/unknown.png"></img>Khmer</td>
+						<td class="Kongo"><img src="img/unknown.png"></img>Kongo</td>
+						<td class="Korea"><img src="img/korea.png"></img>Korea</td>
+						<td class="Lithuania"><img src="img/lithuania.png"></img>Lithuania</td>
+					</tr>
+					<tr>
+						<td class="Manchuria"><img src="img/manchuria.png"></img>Manchuria</td>
+						<td class="Maya"><img src="img/maya.png"></img>Maya</td>
+						<td class="Mongolia"><img src="img/mongolia.png"></img>Mongolia</td>
+						<td class="Morroco"><img src="img/morroco.png"></img>Morroco</td>
+						<td class="Netherlands"><img src="img/netherlands.png"></img>Netherlands</td>
+						<td class="Normandy"><img src="img/normandy.png"></img>Normandy</td>
+						<td class="Norway"><img src="img/norway.png"></img>Norway</td>
+					</tr>
+					<tr>
+						<td class="Nubia"><img src="img/nubia.png"></img>Nubia</td>
+						<td class="Ottamans"><img src="img/ottamans.png"></img>Ottamans</td>
+						<td class="Persia"><img src="img/persia.png"></img>Persia</td>
+						<td class="Poland"><img src="img/poland.png"></img>Poland</td>
+						<td class="Polynesia"><img src="img/polynesia.png"></img>Polynesia</td>
+						<td class="Portugal"><img src="img/portugal.png"></img>Portugal</td>
+						<td class="Rome"><img src="img/rome.png"></img>Rome</td>
+					</tr>
+					<tr>
+						<td class="Russia"><img src="img/russia.png"></img>Russia</td>
+						<td class="Shoshone"><img src="img/shoshone.png"></img>Shoshone</td>
+						<td class="Siam"><img src="img/siam.png"></img>Siam</td>
+						<td class="Sioux"><img src="img/unknown.png"></img>Sioux</td>
+						<td class="Songhai"><img src="img/songhai.png"></img>Songhai</td>
+						<td class="Spain"><img src="img/spain.png"></img>Spain</td>
+						<td class="Sumeria"><img src="img/sumeria.png"></img>Sumeria</td>
+					</tr>
+					<tr>
+						<td class="Sweden"><img src="img/sweden.png"></img>Sweden</td>
+						<td class="Tibet"><img src="img/tibet.png"></img>Tibet</td>
+						<td class="Timurids"><img src="img/unknown.png"></img>Timurids</td>
+						<td class="Ukraine"><img src="img/unknown.png"></img>Ukraine</td>
+						<td class="Vietnam"><img src="img/unknown.png"></img>Vietnam</td>
+						<td class="Zulu"><img src="img/zulu.png"></img>Zulu</td>
+						<td class="Unused"></td>
+					</tr>
+				</table>
+			</div>
+			<div id="buttons">
+				<input class="submitbutton" name="create" id="create" type="button" value="Create Draft" />
+				<input class="submitbutton" name="reset" id="reset" type="button" value="Reset" />
+				<input class="submitbutton" name="all" id="all" type="button" value="All" />
+			</div>
+		</form>
+		
+		<div id="results">
+		</div>
+	</div>
+	
+	<div id="copyresultstext">
+		<textarea rows="4" cols="50" id="copyTarget">
+			Text to Copy
+		</textarea>
+	</div>
+</body>
+</html>

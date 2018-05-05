@@ -1,0 +1,197 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+@font-face {
+  font-family: "Montserrat";
+}
+
+body {
+	background-color: #282828;
+}
+#main {
+	margin: auto;
+    width: 100%;
+    height: 1000px;
+}
+
+#header {
+	margin: auto;
+    width: 100%;
+    height: 30px;
+}
+
+.headline {
+	font-family: Montserrat;
+	font-size: 20px;
+	text-align: center;
+	color: #ffffff;
+}
+
+ul li {
+  	list-style: none;
+  	font-family: Montserrat;
+	font-size: 15px;
+	left: 100px;
+	color: #ffffff;
+	padding-bottom: 10px;
+
+}
+
+ul li > label:after, ul li > label:after {
+  	content:":";
+}
+
+label {
+  	display: inline-block;
+	text-align: right;
+	width: 200px;
+	font-size: 13px;
+	line-height: 16px;
+}
+
+input, select {
+	display: inline-block;
+	background-color: #fff;
+	border: solid 1px #BBC5CE;
+	margin: 0;
+	padding: 5px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+}
+
+#playerdetails {
+	margin: auto;
+	text-align: center;
+    width: 100%;
+    height: 50px;
+
+}
+
+#civselections {
+	border: 1px solid #ffffff;
+	border-radius: 25px;
+	margin: auto;
+	margin-top: 30px;
+	left: 50%;
+	width: 1100px;
+	height: 415px;
+}
+
+.selectorheadline {
+	font-family: Montserrat;
+	font-size: 15px;
+	text-align: center;
+	color: #ffffff;
+
+}
+
+#civilizations {
+	width: 100%;
+	font-family: Montserrat;
+	font-size: 15px;
+	text-align: center;
+	color: #ffffff;
+	margin: 0 auto;
+}
+
+#civilizations td {
+	text-align: left;
+	vertical-align:middle;
+	width: 45px;
+}
+
+#civilizations img {
+	vertical-align:middle;
+	padding-right: 10px;
+	padding-left: 10px;
+	width: 32px;
+	height: auto;
+}
+
+.civname {
+	text-align: left;
+}
+
+#buttons {
+	margin: auto;
+	margin-top: 10px;
+	top: 770px;
+	left: 50%;
+    width: 750px;
+    height: 50px;
+	text-align: center;
+}
+
+#civilizations td:hover {
+	background-color: #464646;
+}
+
+#civilizations label {
+    clear:left;
+    text-align:left;
+    width: 50px;
+}
+
+.submitbutton {
+	font-family: Montserrat;
+	border-radius: 15px;
+	width: 100px;
+	margin-left: 20px;
+	
+}
+
+.drafterdropbox {
+	font-family: Montserrat;
+	border-radius: 15px;
+	padding-left: 20px;
+	margin-left: 20px;
+}
+
+#results {
+	font-family: Montserrat;
+	margin: auto;
+	top: 815px;
+	left: 50%;
+    width: 100%;
+    height: 50px;
+	text-align: center;
+}
+
+.drawerror {
+	text-align: center;
+	color: #ffff00;
+}
+
+.drawresults {
+	margin: 0 auto;
+	color: #000000;
+	background-color: #4CAF50;
+}
+
+#results img {
+	vertical-align:middle;
+	padding-right: 10px;
+	padding-left: 10px;
+	width: 32px;
+	height: auto;
+}
+
+#copyresults {
+	margin: auto;
+	margin-top: 15px;
+	top: 770px;
+	left: 50%;
+    width: 750px;
+    height: 50px;
+	text-align: center;
+}
+
+#copyresultstext {
+	margin-left: -999px;
+}
+
+.rescopied {
+	text-align: center;
+	color: #ffffff;
+
+}
