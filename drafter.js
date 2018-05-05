@@ -143,7 +143,7 @@
 			// pick 3 rand civs for each player
 			var i;
 			var k;
-			var picksHTML = "<p class='rescopied'>Draft results have been copied to clipbaord</p>";
+			var picksHTML = "<p class='rescopied'>Draft results have been copied to clipboard</p>";
 			var resCopy = ""
 			
 			picksHTML = picksHTML + "<table class='drawresults'>";
