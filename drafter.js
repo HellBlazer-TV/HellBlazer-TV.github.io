@@ -164,9 +164,7 @@
 					//loop thru the avlaiable civs and pick 3 at random
 					var thisciv = Math.floor(Math.random() * allowedCivs.length);
 					
-					if (allowedCivs[thisciv] == "Ayyubids" || allowedCivs[thisciv] == "Burma" || allowedCivs[thisciv] == "Franks" || allowedCivs[thisciv] == "Goths" || 
-						allowedCivs[thisciv] == "Hungary" || allowedCivs[thisciv] == "Italy" || allowedCivs[thisciv] == "Jerusalem" || allowedCivs[thisciv] == "Khmer" || 
-						allowedCivs[thisciv] == "Kongo" || allowedCivs[thisciv] == "Sioux" || allowedCivs[thisciv] == "Timurids" || allowedCivs[thisciv] == "Ukraine" || allowedCivs[thisciv] == "Vietnam") {
+					if (allowedCivs[thisciv] == "Burma" || allowedCivs[thisciv] == "Hungary" allowedCivs[thisciv] == "Khmer" || allowedCivs[thisciv] == "Kongo") {
 						
 						picksHTML = picksHTML + "<td><img src='img/unknown.png'></img>" + allowedCivs[thisciv];
 					} else {
