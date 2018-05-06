@@ -83,8 +83,8 @@
 				$(this).fadeTo( "slow" , 1, function() {});
 				allCivs[this.className] = true;
 			} else {
-				$(this).fadeTo( "slow" , 0.25, function() {$(this).css("text-decoration", "line-through");});
 				$(this).css("background-color", "#1a1a1a");
+				$(this).fadeTo( "slow" , 0.25, function() {$(this).css("text-decoration", "line-through");});
 				allCivs[this.className] = false;
 			}
 		}
