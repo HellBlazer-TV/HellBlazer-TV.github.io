@@ -79,10 +79,12 @@
 		if ( !$(this).is(':animated') ) {
 			if ($(this).css('opacity') < 1) {
 				$(this).css("text-decoration", "none");
+				$(this).css("background-color", "#282828");
 				$(this).fadeTo( "slow" , 1, function() {});
 				allCivs[this.className] = true;
 			} else {
 				$(this).fadeTo( "slow" , 0.25, function() {$(this).css("text-decoration", "line-through");});
+				$(this).fadeTo( "slow" , 0.25, function() {$(this).css("background-color", "#1a1a1a");});
 				allCivs[this.className] = false;
 			}
 		}
