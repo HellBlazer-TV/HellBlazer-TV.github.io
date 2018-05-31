@@ -47,12 +47,12 @@
 	allCivs["Manchuria"] = true;
 	allCivs["Maya"] = true;
 	allCivs["Mongolia"] = true;
-	allCivs["Morroco"] = true;
+	allCivs["Morocco"] = true;
 	allCivs["Netherlands"] = true;
 	allCivs["Normandy"] = true;
 	allCivs["Norway"] = true;
 	allCivs["Nubia"] = true;
-	allCivs["Ottamans"] = true;
+	allCivs["Ottomans"] = true;
 	allCivs["Persia"] = true;
 	allCivs["Poland"] = true;
 	allCivs["Polynesia"] = true;
@@ -77,7 +77,7 @@
 	var titleHTML = "";
 	
 	// toggle disable or enabled civ
-	$(".America, .Arabia, .Armenia, .Assyria, .Australia, .Austria, .Ayyubids, .Aztec, .Babylon, .Belgium, .Boers, .Brazil, .Bulgaria, .Burma, .Byzantium, .Canada, .Carthage, .Celts, .China, .Denmark, .Egypt, .England, .Ethiopia, .France, .Franks, .Germany, .Goths, .Greece, .Hittites, .Hungary, .Huns, .Inca, .India, .Indonesia, .Iroquois, .Italy, .Japan, .Jerusalem, .Khmer, .Kongo, .Korea, .Lithuania, .Manchuria, .Maya, .Mongolia, .Morroco, .Netherlands, .Normandy, .Norway, .Nubia, .Ottamans, .Persia, .Poland, .Polynesia, .Portugal, .Rome, .Russia, .Shoshone, .Siam, .Sioux, .Songhai, .Spain, .Sumeria, .Sweden, .Tibet, .Timurids, .Ukraine, .Vietnam, .Zulu").bind('click', toggleState)
+	$(".America, .Arabia, .Armenia, .Assyria, .Australia, .Austria, .Ayyubids, .Aztec, .Babylon, .Belgium, .Boers, .Brazil, .Bulgaria, .Burma, .Byzantium, .Canada, .Carthage, .Celts, .China, .Denmark, .Egypt, .England, .Ethiopia, .France, .Franks, .Germany, .Goths, .Greece, .Hittites, .Hungary, .Huns, .Inca, .India, .Indonesia, .Iroquois, .Italy, .Japan, .Jerusalem, .Khmer, .Kongo, .Korea, .Lithuania, .Manchuria, .Maya, .Mongolia, .Morocco, .Netherlands, .Normandy, .Norway, .Nubia, .Ottomans, .Persia, .Poland, .Polynesia, .Portugal, .Rome, .Russia, .Shoshone, .Siam, .Sioux, .Songhai, .Spain, .Sumeria, .Sweden, .Tibet, .Timurids, .Ukraine, .Vietnam, .Zulu").bind('click', toggleState)
 	
 	function toggleState(e) {        // function_tr
 		if ( !$(this).is(':animated') ) {
@@ -100,12 +100,12 @@
 	
 	//reset all to enabled
 	$('#reset').click(function() {
-		$(".America, .Arabia, .Armenia, .Assyria, .Australia, .Austria, .Ayyubids, .Aztec, .Babylon, .Belgium, .Boers, .Brazil, .Bulgaria, .Burma, .Byzantium, .Canada, .Carthage, .Celts, .China, .Denmark, .Egypt, .England, .Ethiopia, .France, .Franks, .Germany, .Goths, .Greece, .Hittites, .Hungary, .Huns, .Inca, .India, .Indonesia, .Iroquois, .Italy, .Japan, .Jerusalem, .Khmer, .Kongo, .Korea, .Lithuania, .Manchuria, .Maya, .Mongolia, .Morroco, .Netherlands, .Normandy, .Norway, .Nubia, .Ottamans, .Persia, .Poland, .Polynesia, .Portugal, .Rome, .Russia, .Shoshone, .Siam, .Sioux, .Songhai, .Spain, .Sumeria, .Sweden, .Tibet, .Timurids, .Ukraine, .Vietnam, .Zulu").css(
+		$(".America, .Arabia, .Armenia, .Assyria, .Australia, .Austria, .Ayyubids, .Aztec, .Babylon, .Belgium, .Boers, .Brazil, .Bulgaria, .Burma, .Byzantium, .Canada, .Carthage, .Celts, .China, .Denmark, .Egypt, .England, .Ethiopia, .France, .Franks, .Germany, .Goths, .Greece, .Hittites, .Hungary, .Huns, .Inca, .India, .Indonesia, .Iroquois, .Italy, .Japan, .Jerusalem, .Khmer, .Kongo, .Korea, .Lithuania, .Manchuria, .Maya, .Mongolia, .Morocco, .Netherlands, .Normandy, .Norway, .Nubia, .Ottomans, .Persia, .Poland, .Polynesia, .Portugal, .Rome, .Russia, .Shoshone, .Siam, .Sioux, .Songhai, .Spain, .Sumeria, .Sweden, .Tibet, .Timurids, .Ukraine, .Vietnam, .Zulu").css(
 		{"text-decoration": "none",
 		"background-color": "#282828"
 		});
 		
-		$(".America, .Arabia, .Armenia, .Assyria, .Australia, .Austria, .Ayyubids, .Aztec, .Babylon, .Belgium, .Boers, .Brazil, .Bulgaria, .Burma, .Byzantium, .Canada, .Carthage, .Celts, .China, .Denmark, .Egypt, .England, .Ethiopia, .France, .Franks, .Germany, .Goths, .Greece, .Hittites, .Hungary, .Huns, .Inca, .India, .Indonesia, .Iroquois, .Italy, .Japan, .Jerusalem, .Khmer, .Kongo, .Korea, .Lithuania, .Manchuria, .Maya, .Mongolia, .Morroco, .Netherlands, .Normandy, .Norway, .Nubia, .Ottamans, .Persia, .Poland, .Polynesia, .Portugal, .Rome, .Russia, .Shoshone, .Siam, .Sioux, .Songhai, .Spain, .Sumeria, .Sweden, .Tibet, .Timurids, .Ukraine, .Vietnam, .Zulu").fadeTo( "slow" , 1, function() {});
+		$(".America, .Arabia, .Armenia, .Assyria, .Australia, .Austria, .Ayyubids, .Aztec, .Babylon, .Belgium, .Boers, .Brazil, .Bulgaria, .Burma, .Byzantium, .Canada, .Carthage, .Celts, .China, .Denmark, .Egypt, .England, .Ethiopia, .France, .Franks, .Germany, .Goths, .Greece, .Hittites, .Hungary, .Huns, .Inca, .India, .Indonesia, .Iroquois, .Italy, .Japan, .Jerusalem, .Khmer, .Kongo, .Korea, .Lithuania, .Manchuria, .Maya, .Mongolia, .Morocco, .Netherlands, .Normandy, .Norway, .Nubia, .Ottomans, .Persia, .Poland, .Polynesia, .Portugal, .Rome, .Russia, .Shoshone, .Siam, .Sioux, .Songhai, .Spain, .Sumeria, .Sweden, .Tibet, .Timurids, .Ukraine, .Vietnam, .Zulu").fadeTo( "slow" , 1, function() {});
 		
 		$.each(allCivs, function (index, value) {
 			allCivs[index] = true;
@@ -119,7 +119,7 @@
 	
 	//set all to disabled
 	$('#all').click(function() {
-		$(".America, .Arabia, .Armenia, .Assyria, .Australia, .Austria, .Ayyubids, .Aztec, .Babylon, .Belgium, .Boers, .Brazil, .Bulgaria, .Burma, .Byzantium, .Canada, .Carthage, .Celts, .China, .Denmark, .Egypt, .England, .Ethiopia, .France, .Franks, .Germany, .Goths, .Greece, .Hittites, .Hungary, .Huns, .Inca, .India, .Indonesia, .Iroquois, .Italy, .Japan, .Jerusalem, .Khmer, .Kongo, .Korea, .Lithuania, .Manchuria, .Maya, .Mongolia, .Morroco, .Netherlands, .Normandy, .Norway, .Nubia, .Ottamans, .Persia, .Poland, .Polynesia, .Portugal, .Rome, .Russia, .Shoshone, .Siam, .Sioux, .Songhai, .Spain, .Sumeria, .Sweden, .Tibet, .Timurids, .Ukraine, .Vietnam, .Zulu").fadeTo( "slow" , 0.25, function() {$(this).css({"text-decoration": "line-through", "background-color": "#1a1a1a"});});;
+		$(".America, .Arabia, .Armenia, .Assyria, .Australia, .Austria, .Ayyubids, .Aztec, .Babylon, .Belgium, .Boers, .Brazil, .Bulgaria, .Burma, .Byzantium, .Canada, .Carthage, .Celts, .China, .Denmark, .Egypt, .England, .Ethiopia, .France, .Franks, .Germany, .Goths, .Greece, .Hittites, .Hungary, .Huns, .Inca, .India, .Indonesia, .Iroquois, .Italy, .Japan, .Jerusalem, .Khmer, .Kongo, .Korea, .Lithuania, .Manchuria, .Maya, .Mongolia, .Morocco, .Netherlands, .Normandy, .Norway, .Nubia, .Ottomans, .Persia, .Poland, .Polynesia, .Portugal, .Rome, .Russia, .Shoshone, .Siam, .Sioux, .Songhai, .Spain, .Sumeria, .Sweden, .Tibet, .Timurids, .Ukraine, .Vietnam, .Zulu").fadeTo( "slow" , 0.25, function() {$(this).css({"text-decoration": "line-through", "background-color": "#1a1a1a"});});;
 		
 		$.each(allCivs, function (index, value) {
 			allCivs[index] = false;
