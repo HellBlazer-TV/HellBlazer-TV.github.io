@@ -121,7 +121,7 @@
 			$.each(allCivs, function (index, value) {
 				if ((index == "Armenia") || (index == "Australia") || (index == "Ayyubids") || (index == "Belgium") || (index == "Boers")  || (index == "Bruneian") || (index == "Bulgaria") || (index == "Burma") || (index == "Canada") || (index == "Franks") || (index == "Golden") || (index == "Goths") ||
 					(index == "Hittites") || (index == "Hungary") || (index == "Italy") || (index == "Jerusalem") || (index == "Khmer") || (index == "Kongo") || (index == "Lithuania") || (index == "Macedonian") || (index == "Manchuria") || (index == "Malagasy") || (index == "Mexican") ||
-					(index == "Normandy") || (index == "Norway") || (index == "Nubia") || (index == "Prussian") || (index == "Sioux") || (index == "Sumeria") || (index == "Tibet") || (index == "Timurids") || (index == "Ukraine") || (index == "Vatican")) || (index == "Venetian")) || (index == "Vietnam")) {
+					(index == "Normandy") || (index == "Norway") || (index == "Nubia") || (index == "Prussian") || (index == "Sioux") || (index == "Sumeria") || (index == "Tibet") || (index == "Timurids") || (index == "Ukraine") || (index == "Vatican")) {
 					allCivs[index] = false;
 				} else {
 					allCivs[index] = true;
@@ -179,7 +179,7 @@
 	        	$.each(allCivs, function (index, value) {
 					if ((index == "Armenia") || (index == "Australia") || (index == "Ayyubids") || (index == "Belgium") || (index == "Boers")  || (index == "Bruneian") || (index == "Bulgaria") || (index == "Burma") || (index == "Canada") || (index == "Franks") || (index == "Golden") || (index == "Goths") ||
 					(index == "Hittites") || (index == "Hungary") || (index == "Italy") || (index == "Jerusalem") || (index == "Khmer") || (index == "Kongo") || (index == "Lithuania") || (index == "Macedonian") || (index == "Manchuria") || (index == "Malagasy") || (index == "Mexican") ||
-					(index == "Normandy") || (index == "Norway") || (index == "Nubia") || (index == "Prussian") || (index == "Sioux") || (index == "Sumeria") || (index == "Tibet") || (index == "Timurids") || (index == "Ukraine") || (index == "Vatican")) || (index == "Venetian")) || (index == "Vietnam")) {
+					(index == "Normandy") || (index == "Norway") || (index == "Nubia") || (index == "Prussian") || (index == "Sioux") || (index == "Sumeria") || (index == "Tibet") || (index == "Timurids") || (index == "Ukraine") || (index == "Vatican")) {
 						allCivs[index] = false;
 					}
 		  		});
