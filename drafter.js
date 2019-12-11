@@ -180,7 +180,7 @@
 	$('#slideThree').change(function() {
         if(this.checked) {
         	if (allclicked == false) {
-	        	$(".Akkad, Argentina, .Armenia, .Australia, .Ayyubids, .Belgium, .Boers, .Bruneian, .Bulgaria, .Burma, .Canada, .Finland, .Franks, .Golden, .Goths, .Hittites, .Hungary, .Israel, .Italy, .Jerusalem, .Khmer, .Kongo, .Lithuania, .Macedonian, .Manchuria, .Malagasy, .Mexican, .Normandy, .Norway, .Nubia, .Prussian, .Romania, .Serbia, .Sioux, .Sumeria, .Tibet, .Timurids, .Ukraine, .Vatican, .Venetian, .Vietnam").fadeTo( "slow" , 0.25, function() {$(this).css({"text-decoration": "line-through", "background-color": "#1a1a1a"});});;
+	        	$(".Akkad, .Argentina, .Armenia, .Australia, .Ayyubids, .Belgium, .Boers, .Bruneian, .Bulgaria, .Burma, .Canada, .Finland, .Franks, .Golden, .Goths, .Hittites, .Hungary, .Israel, .Italy, .Jerusalem, .Khmer, .Kongo, .Lithuania, .Macedonian, .Manchuria, .Malagasy, .Mexican, .Normandy, .Norway, .Nubia, .Prussian, .Romania, .Serbia, .Sioux, .Sumeria, .Tibet, .Timurids, .Ukraine, .Vatican, .Venetian, .Vietnam").fadeTo( "slow" , 0.25, function() {$(this).css({"text-decoration": "line-through", "background-color": "#1a1a1a"});});;
 	        	
 	        	$.each(allCivs, function (index, value) {
 					if ((index == "Akkad") || (index == "Argentina") || (index == "Armenia") || (index == "Australia") || (index == "Ayyubids") || (index == "Belgium") || (index == "Boers")  || (index == "Bruneian") || (index == "Bulgaria") || (index == "Burma") || (index == "Canada") ||  (index == "Finland") || (index == "Franks") || (index == "Golden") || (index == "Goths") ||
