@@ -222,7 +222,7 @@
 		  		});
 	
 	        	//update the title
-	        	totalCivs = 88;
+	        	totalCivs = 91;
 		  		bannedCivs = 0;
 				updateBanned(totalCivs, bannedCivs);
 			}
@@ -261,7 +261,7 @@
   		});
 		
 		//check if the user is trying to pick more civs than avaliable
-		if (neededCivs > 88) {
+		if (neededCivs > 91) {
 			$("#results").html("<p class='drawerror'>There are not enough civilizations for " + players + " players to have " + rndpicks + " picks each!</br>Select a different number of players or lower the number of random picks and try again!</p>");
 
 		// check if we have enough enabled civs process the draft
