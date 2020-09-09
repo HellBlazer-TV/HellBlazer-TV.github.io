@@ -176,7 +176,7 @@
   		});
   		
   		//update the title
-  		totalCivs = 88;
+  		totalCivs = 91;
   		bannedCivs = totalCivs;
 		updateBanned(totalCivs, bannedCivs);
 		
