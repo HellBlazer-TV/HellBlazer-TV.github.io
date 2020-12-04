@@ -57,11 +57,13 @@
 	allCivs["Macedonian"] = true
 	allCivs["Malagasy"] = true
 	allCivs["Manchuria"] = true;
+	allCivs["Maori"] = true;
 	allCivs["Maya"] = true;
 	allCivs["Mexican"] = true;
 	allCivs["Mongolia"] = true;
 	allCivs["Morocco"] = true;
 	allCivs["Netherlands"] = true;
+	allCivs["NewZealand"] = true;
 	allCivs["Normandy"] = true;
 	allCivs["Norway"] = true;
 	allCivs["Nubia"] = true;
@@ -85,6 +87,7 @@
 	allCivs["Sweden"] = true;
 	allCivs["Tibet"] = true;
 	allCivs["Timurids"] = true;
+	allCivs["Tonga"] = true;
 	allCivs["Turkey"] = true;
 	allCivs["Ukraine"] = true;
 	allCivs["Vatican"] = true;
@@ -95,12 +98,12 @@
 	allCivs["Zulu"] = true;
 	
 	var bannedCivs = 0;
-	var totalCivs = 91;
+	var totalCivs = 94;
 	var titleHTML = "";
 	var allclicked = false;
 	
 	// toggle disable or enabled civ
-	$(".Akkad, .Aksum, .America, .Arabia, .Argentina, .Armenia, .Assyria, .Australia, .Austria, .Ayyubids, .Aztec, .Babylon, .Belgium, .Boers, .Brazil, .Bruneian, .Bulgaria, .Burma, .Byzantium, .Canada, .Carthage, .Celts, .China, .Denmark, .Egypt, .England, .Ethiopia, .Finland, .France, .Franks, .Gaul, .Germany, .Golden, .Goths, .Greece, .Hittites, .Hungary, .Huns, .Inca, .India, .Ireland, .Indonesia, .Iroquois, .Israel, .Italy, .Japan, .Jerusalem, .Khmer, .Kilwa, .Kongo, .Korea, .Lithuania, .Macedonian, .Malagasy, .Manchuria, .Maya, .Mexican, .Mongolia, .Morocco, .Netherlands, .Normandy, .Norway, .Nubia, .Ottomans, .Persia, .Phoenician, .Poland, .Polynesia, .Portugal, .Prussian, .Romania, .Rome, .Russia, .Scotland, .Shoshone, .Siam, .Sioux, .Songhai, .Spain, .Sumeria, .Sweden, .Tibet, .Timurids, .Turkey, .Ukraine, .Vatican, .Venetian, .Vietnam, .Wales, .Zimbabwe, .Zulu").bind('click', toggleState)
+	$(".Akkad, .Aksum, .America, .Arabia, .Argentina, .Armenia, .Assyria, .Australia, .Austria, .Ayyubids, .Aztec, .Babylon, .Belgium, .Boers, .Brazil, .Bruneian, .Bulgaria, .Burma, .Byzantium, .Canada, .Carthage, .Celts, .China, .Denmark, .Egypt, .England, .Ethiopia, .Finland, .France, .Franks, .Gaul, .Germany, .Golden, .Goths, .Greece, .Hittites, .Hungary, .Huns, .Inca, .India, .Ireland, .Indonesia, .Iroquois, .Israel, .Italy, .Japan, .Jerusalem, .Khmer, .Kilwa, .Kongo, .Korea, .Lithuania, .Macedonian, .Malagasy, .Manchuria, .Maori, .Maya, .Mexican, .Mongolia, .Morocco, .Netherlands, .NewZealand, .Normandy, .Norway, .Nubia, .Ottomans, .Persia, .Phoenician, .Poland, .Polynesia, .Portugal, .Prussian, .Romania, .Rome, .Russia, .Scotland, .Shoshone, .Siam, .Sioux, .Songhai, .Spain, .Sumeria, .Sweden, .Tibet, .Timurids, .Tonga, .Turkey, .Ukraine, .Vatican, .Venetian, .Vietnam, .Wales, .Zimbabwe, .Zulu").bind('click', toggleState)
 	
 	function toggleState(e) {        // function_tr
 		if ( !$(this).is(':animated') ) {
@@ -134,8 +137,8 @@
 			
 			$.each(allCivs, function (index, value) {
 				if ((index == "Akkad") || (index == "Aksum") || (index == "Argentina") || (index == "Armenia") || (index == "Australia") || (index == "Ayyubids") || (index == "Belgium") || (index == "Boers")  || (index == "Bruneian") || (index == "Bulgaria") || (index == "Burma") || (index == "Canada") || (index == "Finland") || (index == "Franks") || (index == "Gaul") || (index == "Golden") || (index == "Goths") ||
-					(index == "Hittites") || (index == "Hungary") || (index == "Ireland") || (index == "Israel") || (index == "Italy") || (index == "Jerusalem") || (index == "Khmer") || (index == "Kilwa") || (index == "Kongo") || (index == "Lithuania") || (index == "Macedonian") || (index == "Manchuria") || (index == "Malagasy") || (index == "Mexican") ||
-					(index == "Normandy") || (index == "Norway") || (index == "Nubia") || (index == "Phoenician") || (index == "Prussian") || (index == "Romania") || (index == "Scotland") || (index == "Sioux") || (index == "Sumeria") || (index == "Tibet") || (index == "Timurids") || (index == "Turkey") || (index == "Ukraine") || (index == "Venetian") || (index == "Vietnam") || (index == "Vatican")|| (index == "Wales")|| (index == "Zimbabwe")) {
+					(index == "Hittites") || (index == "Hungary") || (index == "Ireland") || (index == "Israel") || (index == "Italy") || (index == "Jerusalem") || (index == "Khmer") || (index == "Kilwa") || (index == "Kongo") || (index == "Lithuania") || (index == "Macedonian") || (index == "Manchuria") || (index == "Maori") || (index == "Malagasy") || (index == "Mexican") || (index == "NewZealand") ||
+					(index == "Normandy") || (index == "Norway") || (index == "Nubia") || (index == "Phoenician") || (index == "Prussian") || (index == "Romania") || (index == "Scotland") || (index == "Sioux") || (index == "Sumeria") || (index == "Tibet") || (index == "Timurids") || (index == "Tonga") || (index == "Turkey") || (index == "Ukraine") || (index == "Venetian") || (index == "Vietnam") || (index == "Vatican")|| (index == "Wales")|| (index == "Zimbabwe")) {
 					allCivs[index] = false;
 				} else {
 					allCivs[index] = true;
@@ -148,12 +151,12 @@
 			updateBanned(totalCivs, bannedCivs);
 
 		} else {
-			$(".Akkad, .Aksum, .America, .Arabia, .Argentina, .Armenia, .Assyria, .Australia, .Austria, .Ayyubids, .Aztec, .Babylon, .Belgium, .Boers, .Brazil, .Bruneian, .Bulgaria, .Burma, .Byzantium, .Canada, .Carthage, .Celts, .China, .Denmark, .Egypt, .England, .Ethiopia, .Finland, .France, .Franks, .Gaul, .Germany, .Gaul, .Golden, .Goths, .Greece, .Hittites, .Hungary, .Huns, .Inca, .India, .Ireland, .Indonesia, .Iroquois, .Israel, .Italy, .Japan, .Jerusalem, .Khmer, .Kilwa, .Kongo, .Korea, .Lithuania, .Macedonian, .Malagasy, .Manchuria, .Maya, .Mexican, .Mongolia, .Morocco, .Netherlands, .Normandy, .Norway, .Nubia, .Ottomans, .Persia, .Phoenician, .Poland, .Polynesia, .Portugal, .Prussian, .Romania, .Rome, .Russia, .Scotland, .Shoshone, .Siam, .Sioux, .Songhai, .Spain, .Sumeria, .Sweden, .Tibet, .Timurids, .Turkey, .Ukraine, .Vatican, .Venetian, .Vietnam, .Wales, .Zimbabwe, .Zulu").css(
+			$(".Akkad, .Aksum, .America, .Arabia, .Argentina, .Armenia, .Assyria, .Australia, .Austria, .Ayyubids, .Aztec, .Babylon, .Belgium, .Boers, .Brazil, .Bruneian, .Bulgaria, .Burma, .Byzantium, .Canada, .Carthage, .Celts, .China, .Denmark, .Egypt, .England, .Ethiopia, .Finland, .France, .Franks, .Gaul, .Germany, .Gaul, .Golden, .Goths, .Greece, .Hittites, .Hungary, .Huns, .Inca, .India, .Ireland, .Indonesia, .Iroquois, .Israel, .Italy, .Japan, .Jerusalem, .Khmer, .Kilwa, .Kongo, .Korea, .Lithuania, .Macedonian, .Malagasy, .Manchuria, .Maori, .Maya, .Mexican, .Mongolia, .Morocco, .Netherlands, .NewZealand, .Normandy, .Norway, .Nubia, .Ottomans, .Persia, .Phoenician, .Poland, .Polynesia, .Portugal, .Prussian, .Romania, .Rome, .Russia, .Scotland, .Shoshone, .Siam, .Sioux, .Songhai, .Spain, .Sumeria, .Sweden, .Tibet, .Timurids, .Tonga, .Turkey, .Ukraine, .Vatican, .Venetian, .Vietnam, .Wales, .Zimbabwe, .Zulu").css(
 			{"text-decoration": "none",
 			"background-color": "#282828"
 			});
 			
-			$(".Akkad, .Aksum, .America, .Arabia, .Argentina, .Armenia, .Assyria, .Australia, .Austria, .Ayyubids, .Aztec, .Babylon, .Belgium, .Boers, .Brazil, .Bruneian, .Bulgaria, .Burma, .Byzantium, .Canada, .Carthage, .Celts, .China, .Denmark, .Egypt, .England, .Ethiopia, .Finland, .France, .Franks, .Gaul, .Germany, .Gaul, .Golden, .Goths, .Greece, .Hittites, .Hungary, .Huns, .Inca, .India, .Ireland, .Indonesia, .Iroquois, .Israel, .Italy, .Japan, .Jerusalem, .Khmer, .Kilwa, .Kongo, .Korea, .Lithuania, .Macedonian, .Malagasy, .Manchuria, .Maya, .Mexican, .Mongolia, .Morocco, .Netherlands, .Normandy, .Norway, .Nubia, .Ottomans, .Persia, .Phoenician, .Poland, .Polynesia, .Portugal, .Prussian, .Rome, .Russia, .Scotland, .Shoshone, .Siam, .Sioux, .Songhai, .Spain, .Sumeria, .Sweden, .Tibet, .Timurids, .Turkey, .Ukraine, .Vatican, .Venetian, .Vietnam, .Wales, .Zimbabwe, .Zulu").fadeTo( "slow" , 1, function() {});
+			$(".Akkad, .Aksum, .America, .Arabia, .Argentina, .Armenia, .Assyria, .Australia, .Austria, .Ayyubids, .Aztec, .Babylon, .Belgium, .Boers, .Brazil, .Bruneian, .Bulgaria, .Burma, .Byzantium, .Canada, .Carthage, .Celts, .China, .Denmark, .Egypt, .England, .Ethiopia, .Finland, .France, .Franks, .Gaul, .Germany, .Gaul, .Golden, .Goths, .Greece, .Hittites, .Hungary, .Huns, .Inca, .India, .Ireland, .Indonesia, .Iroquois, .Israel, .Italy, .Japan, .Jerusalem, .Khmer, .Kilwa, .Kongo, .Korea, .Lithuania, .Macedonian, .Malagasy, .Manchuria, .Maori, .Maya, .Mexican, .Mongolia, .Morocco, .Netherlands, .NewZealand, .Normandy, .Norway, .Nubia, .Ottomans, .Persia, .Phoenician, .Poland, .Polynesia, .Portugal, .Prussian, .Rome, .Russia, .Scotland, .Shoshone, .Siam, .Sioux, .Songhai, .Spain, .Sumeria, .Sweden, .Tibet, .Timurids, .Tonga, .Turkey, .Ukraine, .Vatican, .Venetian, .Vietnam, .Wales, .Zimbabwe, .Zulu").fadeTo( "slow" , 1, function() {});
 			
 			$.each(allCivs, function (index, value) {
 				allCivs[index] = true;
@@ -169,14 +172,14 @@
 	
 	//set all to disabled
 	$('#all').click(function() {
-		$(".Akkad, .Aksum, .America, .Arabia, .Argentina, .Armenia, .Assyria, .Australia, .Austria, .Ayyubids, .Aztec, .Babylon, .Belgium, .Boers, .Brazil, .Bruneian, .Bulgaria, .Burma, .Byzantium, .Canada, .Carthage, .Celts, .China, .Denmark, .Egypt, .England, .Ethiopia, .Finland, .France, .Franks, .Gaul, .Germany, .Golden, .Gaul, .Goths, .Greece, .Hittites, .Hungary, .Huns, .Inca, .Ireland, .India, .Indonesia, .Iroquois, .Israel, .Italy, .Japan, .Jerusalem, .Khmer, .Kilwa, .Kongo, .Korea, .Lithuania, .Macedonian, .Malagasy, .Manchuria, .Maya, .Mexican, .Mongolia, .Morocco, .Netherlands, .Normandy, .Norway, .Nubia, .Ottomans, .Persia, .Phoenician, .Poland, .Polynesia, .Portugal, .Prussian, .Romania, .Rome, .Russia, .Scotland, .Shoshone, .Siam, .Sioux, .Songhai, .Spain, .Sumeria, .Sweden, .Tibet, .Timurids, .Turkey, .Ukraine, .Vatican, .Venetian, .Vietnam, .Wales, .Zimbabwe, .Zulu").fadeTo( "slow" , 0.25, function() {$(this).css({"text-decoration": "line-through", "background-color": "#1a1a1a"});});;
+		$(".Akkad, .Aksum, .America, .Arabia, .Argentina, .Armenia, .Assyria, .Australia, .Austria, .Ayyubids, .Aztec, .Babylon, .Belgium, .Boers, .Brazil, .Bruneian, .Bulgaria, .Burma, .Byzantium, .Canada, .Carthage, .Celts, .China, .Denmark, .Egypt, .England, .Ethiopia, .Finland, .France, .Franks, .Gaul, .Germany, .Golden, .Gaul, .Goths, .Greece, .Hittites, .Hungary, .Huns, .Inca, .Ireland, .India, .Indonesia, .Iroquois, .Israel, .Italy, .Japan, .Jerusalem, .Khmer, .Kilwa, .Kongo, .Korea, .Lithuania, .Macedonian, .Malagasy, .Manchuria, .Maori, .Maya, .Mexican, .Mongolia, .Morocco, .Netherlands, .NewZealand, .Normandy, .Norway, .Nubia, .Ottomans, .Persia, .Phoenician, .Poland, .Polynesia, .Portugal, .Prussian, .Romania, .Rome, .Russia, .Scotland, .Shoshone, .Siam, .Sioux, .Songhai, .Spain, .Sumeria, .Sweden, .Tibet, .Timurids, .Tonga, .Turkey, .Ukraine, .Vatican, .Venetian, .Vietnam, .Wales, .Zimbabwe, .Zulu").fadeTo( "slow" , 0.25, function() {$(this).css({"text-decoration": "line-through", "background-color": "#1a1a1a"});});;
 		
 		$.each(allCivs, function (index, value) {
 			allCivs[index] = false;
   		});
   		
   		//update the title
-  		totalCivs = 91;
+  		totalCivs = 88;
   		bannedCivs = totalCivs;
 		updateBanned(totalCivs, bannedCivs);
 		
@@ -188,12 +191,12 @@
 	$('#slideThree').change(function() {
         if(this.checked) {
         	if (allclicked == false) {
-	        	$(".Akkad, .Aksum, .Argentina, .Armenia, .Australia, .Ayyubids, .Belgium, .Boers, .Bruneian, .Bulgaria, .Burma, .Canada, .Finland, .Franks, .Golden, .Goths, .Gaul, .Hittites, .Hungary, .Ireland, .Israel, .Italy, .Jerusalem, .Khmer, .Kilwa, .Kongo, .Lithuania, .Macedonian, .Manchuria, .Malagasy, .Mexican, .Normandy, .Norway, .Nubia, .Phoenician, .Prussian, .Romania, .Scotland, .Sioux, .Sumeria, .Tibet, .Timurids, .Turkey, .Ukraine, .Vatican, .Venetian, .Vietnam, .Wales, .Zimbabwe").fadeTo( "slow" , 0.25, function() {$(this).css({"text-decoration": "line-through", "background-color": "#1a1a1a"});});;
+	        	$(".Akkad, .Aksum, .Argentina, .Armenia, .Australia, .Ayyubids, .Belgium, .Boers, .Bruneian, .Bulgaria, .Burma, .Canada, .Finland, .Franks, .Golden, .Goths, .Gaul, .Hittites, .Hungary, .Ireland, .Israel, .Italy, .Jerusalem, .Khmer, .Kilwa, .Kongo, .Lithuania, .Macedonian, .Manchuria, .Maori, .Malagasy, .Mexican, .NewZealand, .Normandy, .Norway, .Nubia, .Phoenician, .Prussian, .Romania, .Scotland, .Sioux, .Sumeria, .Tibet, .Timurids, .Tonga, .Turkey, .Ukraine, .Vatican, .Venetian, .Vietnam, .Wales, .Zimbabwe").fadeTo( "slow" , 0.25, function() {$(this).css({"text-decoration": "line-through", "background-color": "#1a1a1a"});});;
 	        	
 	        	$.each(allCivs, function (index, value) {
 					if ((index == "Akkad") || (index == "Aksum") || (index == "Argentina") || (index == "Armenia") || (index == "Australia") || (index == "Ayyubids") || (index == "Belgium") || (index == "Boers")  || (index == "Bruneian") || (index == "Bulgaria") || (index == "Burma") || (index == "Canada") ||  (index == "Finland") || (index == "Franks") || (index == "Golden") || (index == "Goths") ||
-					(index == "Gaul") || (index == "Hittites") || (index == "Hungary") || (index == "Ireland") || (index == "Israel") || (index == "Italy") || (index == "Jerusalem") || (index == "Khmer") || (index == "Kilwa") || (index == "Kongo") || (index == "Lithuania") || (index == "Macedonian") || (index == "Manchuria") || (index == "Malagasy") || (index == "Mexican") ||
-					(index == "Normandy") || (index == "Norway") || (index == "Nubia") || (index == "Phoenician") || (index == "Prussian") || (index == "Romania") || (index == "Scotland") || (index == "Sioux") || (index == "Sumeria") || (index == "Tibet") || (index == "Timurids") || (index == "Turkey") || (index == "Ukraine") || (index == "Venetian") || (index == "Vietnam") || (index == "Vatican")||(index == "Wales")|| (index == "Zimbabwe")) {
+					(index == "Gaul") || (index == "Hittites") || (index == "Hungary") || (index == "Ireland") || (index == "Israel") || (index == "Italy") || (index == "Jerusalem") || (index == "Khmer") || (index == "Kilwa") || (index == "Kongo") || (index == "Lithuania") || (index == "Macedonian") || (index == "Maori") || (index == "Manchuria") || (index == "Malagasy") || (index == "Mexican") || (index == "NewZealand") ||
+					(index == "Normandy") || (index == "Norway") || (index == "Nubia") || (index == "Phoenician") || (index == "Prussian") || (index == "Romania") || (index == "Scotland") || (index == "Sioux") || (index == "Sumeria") || (index == "Tibet") || (index == "Timurids") || (index == "Tonga") || (index == "Turkey") || (index == "Ukraine") || (index == "Venetian") || (index == "Vietnam") || (index == "Vatican")||(index == "Wales")|| (index == "Zimbabwe")) {
 						allCivs[index] = false;
 					}
 		  		});
@@ -208,21 +211,21 @@
             $(this).prop("checked");
         } else {
         	if (allclicked == false) {
-	        	$(".Akkad, .Aksum, .Argentina, .Armenia, .Australia, .Ayyubids, .Belgium, .Boers, .Bruneian, .Bulgaria, .Burma, .Canada, .Finland, .Franks, .Golden, .Gaul, .Goths, .Hittites, .Hungary, .Ireland, .Israel, .Italy, .Jerusalem, .Khmer, .Kilwa, .Kongo, .Lithuania, .Macedonian, .Manchuria, .Malagasy, .Mexican, .Normandy, .Norway, .Nubia, .Phoenician, .Prussian, .Romania, .Scotland, .Sioux, .Sumeria, .Tibet, .Timurids, .Turkey, .Ukraine, .Vatican, .Venetian, .Vietnam, .Wales, .Zimbabwe").css({"text-decoration": "none", "background-color": "#282828"});
+	        	$(".Akkad, .Aksum, .Argentina, .Armenia, .Australia, .Ayyubids, .Belgium, .Boers, .Bruneian, .Bulgaria, .Burma, .Canada, .Finland, .Franks, .Golden, .Gaul, .Goths, .Hittites, .Hungary, .Ireland, .Israel, .Italy, .Jerusalem, .Khmer, .Kilwa, .Kongo, .Lithuania, .Macedonian, .Manchuria, .Maori, .Malagasy, .Mexican, .NewZealand, .Normandy, .Norway, .Nubia, .Phoenician, .Prussian, .Romania, .Scotland, .Sioux, .Sumeria, .Tibet, .Timurids, .Tonga, .Turkey, .Ukraine, .Vatican, .Venetian, .Vietnam, .Wales, .Zimbabwe").css({"text-decoration": "none", "background-color": "#282828"});
 	
 	        	
-	        	$(".Akkad, .Aksum, .Argentina, .Armenia, .Australia, .Ayyubids, .Belgium, .Boers, .Bruneian, .Bulgaria, .Burma, .Canada, .Finland, .Franks, .Golden, .Gaul, .Goths, .Hittites, .Hungary, .Ireland, .Israel, .Italy, .Jerusalem, .Khmer, .Kilwa, .Kongo, .Lithuania, .Macedonian, .Manchuria, .Malagasy, .Mexican, .Normandy, .Norway, .Nubia, .Phoenician, .Prussian, .Romania, .Scotland, .Sioux, .Sumeria, .Tibet, .Timurids, .Turkey, .Ukraine, .Vatican, .Venetian, .Vietnam, .Wales, .Zimbabwe").fadeTo( "slow" , 1, function() {});
+	        	$(".Akkad, .Aksum, .Argentina, .Armenia, .Australia, .Ayyubids, .Belgium, .Boers, .Bruneian, .Bulgaria, .Burma, .Canada, .Finland, .Franks, .Golden, .Gaul, .Goths, .Hittites, .Hungary, .Ireland, .Israel, .Italy, .Jerusalem, .Khmer, .Kilwa, .Kongo, .Lithuania, .Macedonian, .Manchuria, .Maori, .Malagasy, .Mexican, .NewZealand, .Normandy, .Norway, .Nubia, .Phoenician, .Prussian, .Romania, .Scotland, .Sioux, .Sumeria, .Tibet, .Timurids, .Tonga, .Turkey, .Ukraine, .Vatican, .Venetian, .Vietnam, .Wales, .Zimbabwe").fadeTo( "slow" , 1, function() {});
 	        	
 	        	$.each(allCivs, function (index, value) {
 					if ((index == "Akkad") || (index == "Aksum") || (index == "Argentina") || (index == "Armenia") || (index == "Australia") || (index == "Ayyubids") || (index == "Belgium") || (index == "Boers")  || (index == "Bruneian") || (index == "Bulgaria") || (index == "Burma") || (index == "Canada") ||  (index == "Finland") || (index == "Franks") || (index == "Golden") || (index == "Goths") ||
-					(index == "Gaul") || (index == "Hittites") || (index == "Hungary") || (index == "Ireland") || (index == "Israel") || (index == "Italy") || (index == "Jerusalem") || (index == "Khmer") || (index == "Kilwa") || (index == "Kongo") || (index == "Lithuania") || (index == "Macedonian") || (index == "Manchuria") || (index == "Malagasy") || (index == "Mexican") ||
-					(index == "Normandy") || (index == "Norway") || (index == "Nubia") || (index == "Phoenician") || (index == "Prussian") || (index == "Romania") || (index == "Scotland") || (index == "Sioux") || (index == "Sumeria") || (index == "Tibet") || (index == "Timurids") || (index == "Turkey") || (index == "Ukraine") || (index == "Venetian") || (index == "Vietnam") || (index == "Vatican")|| (index == "Wales")|| (index == "Zimbabwe")) {
+					(index == "Gaul") || (index == "Hittites") || (index == "Hungary") || (index == "Ireland") || (index == "Israel") || (index == "Italy") || (index == "Jerusalem") || (index == "Khmer") || (index == "Kilwa") || (index == "Kongo") || (index == "Lithuania") || (index == "Macedonian") || (index == "Manchuria") || (index == "Maori") || (index == "Malagasy") || (index == "Mexican") || (index == "NewZealand") ||
+					(index == "Normandy") || (index == "Norway") || (index == "Nubia") || (index == "Phoenician") || (index == "Prussian") || (index == "Romania") || (index == "Scotland") || (index == "Sioux") || (index == "Sumeria") || (index == "Tibet") || (index == "Timurids") || (index == "Tonga") || (index == "Turkey") || (index == "Ukraine") || (index == "Venetian") || (index == "Vietnam") || (index == "Vatican")|| (index == "Wales")|| (index == "Zimbabwe")) {
 						allCivs[index] = true;
 					}
 		  		});
 	
 	        	//update the title
-	        	totalCivs = 91;
+	        	totalCivs = 94;
 		  		bannedCivs = 0;
 				updateBanned(totalCivs, bannedCivs);
 			}
@@ -261,7 +264,7 @@
   		});
 		
 		//check if the user is trying to pick more civs than avaliable
-		if (neededCivs > 91) {
+		if (neededCivs > 94) {
 			$("#results").html("<p class='drawerror'>There are not enough civilizations for " + players + " players to have " + rndpicks + " picks each!</br>Select a different number of players or lower the number of random picks and try again!</p>");
 
 		// check if we have enough enabled civs process the draft
