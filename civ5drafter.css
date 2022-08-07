@@ -154,6 +154,7 @@ input, select {
 	border-radius: 15px;
 	width: 100px;
 	margin-left: 20px;
+	cursor: pointer;
 	
 }
 
