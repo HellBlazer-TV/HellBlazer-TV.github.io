@@ -179,6 +179,7 @@
 		}
 		
 		allclicked = false;
+		$('#create').attr("disabled", false);
 	});
 	
 	//set all to disabled
