@@ -256,7 +256,7 @@
 	
 	// make the draft
 	$('#create').click(function() {	
-		$('#create').attr("disabled", true);
+		$('#create').attr("disabled", false);
   		var players = $("#gameplayers option:selected").index() + 1;
   		var rndpicks = $("#picks option:selected").index() + 1;
   		var neededCivs = players * rndpicks;
