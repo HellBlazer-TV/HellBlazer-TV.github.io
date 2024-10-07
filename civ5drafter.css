@@ -191,12 +191,16 @@ input, select {
 	margin: 0 auto;
 	color: #000000;
 	background-color: #4CAF50;
+	border: 1px solid #ffffff;
+	border-radius: 10px;
 }
 
 #results img {
 	vertical-align:middle;
-	padding-right: 10px;
-	padding-left: 10px;
+	padding-right: 15px;
+	padding-left: 15px;
+	padding-top: 3px;
+	padding-bottom: 3px;
 	width: 32px;
 	height: auto;
 }
