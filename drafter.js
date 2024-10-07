@@ -124,12 +124,12 @@
 		if ( !$(this).is(':animated') ) {
 			if ($(this).css('opacity') < 1) {
 				$(this).css("text-decoration", "none");
-				$(this).css("background-color", "#282828");
+				$(this).css("background-color", "#8d6309");
 				$(this).fadeTo( "slow" , 1, function() {});
 				allCivs[this.className] = true;
 				bannedCivs--;
 			} else {
-				$(this).css("background-color", "#1a1a1a");
+				$(this).css("background-color", "#8d6309");
 				$(this).fadeTo( "slow" , 0.25, function() {$(this).css("text-decoration", "line-through");});
 				allCivs[this.className] = false;
 				bannedCivs++;

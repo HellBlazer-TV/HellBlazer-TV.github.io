@@ -5,7 +5,12 @@
 }
 
 body {
-	background-color: #282828;
+	
+	background-image: url('img/pyramids_background.png');
+	background-repeat: no-repeat;
+	background-color: #8d6309;
+	background-attachment: fixed;
+	background-size: cover;
 }
 #main {
 	margin: auto;
@@ -75,6 +80,8 @@ input, select {
 	left: 50%;
 	width: 1300px;
 	height: 580px;
+	background-color: #8d6309;
+	
 }
 
 .selectorheadline {
@@ -140,7 +147,7 @@ input, select {
 }
 
 #civilizations td:hover {
-	background-color: #464646;
+	background-color: #7e5a0c;
 }
 
 #civilizations label {
