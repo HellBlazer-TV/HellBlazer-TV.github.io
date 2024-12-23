@@ -304,7 +304,101 @@
             $(this).prop("unchecked");
         }      
     });
-  
+
+	// Export settings functionality
+	$('#export').click(function() {
+		// Gather current settings
+		var settings = {
+			players: $("#gameplayers option:selected").index() + 1,
+			picks: $("#picks option:selected").index() + 1,
+			vanillaCivsOnly: $('#slideThree').is(':checked'),
+			lekmodBans: $('#slideFour').is(':checked'),
+			bannedCivs: {}
+		};
+
+		// Save banned/allowed status for each civ
+		$.each(allCivs, function(index, value) {
+			settings.bannedCivs[index] = allCivs[index];
+		});
+
+		// Create and download the JSON file
+		var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(settings));
+		var downloadAnchorNode = document.createElement('a');
+		downloadAnchorNode.setAttribute("href", dataStr);
+		downloadAnchorNode.setAttribute("download", "civ5_drafter_settings.json");
+		document.body.appendChild(downloadAnchorNode);
+		downloadAnchorNode.click();
+		downloadAnchorNode.remove();
+	});
+
+	// Import settings functionality
+	$('#import').click(function() {
+		$('#importFile').click();
+	});
+
+	$('#importFile').change(function(e) {
+		var file = e.target.files[0];
+		if (!file) return;
+
+		var reader = new FileReader();
+		reader.onload = function(e) {
+			try {
+				var settings = JSON.parse(e.target.result);
+				
+				// Apply number of players
+				$("#gameplayers").prop('selectedIndex', settings.players - 1);
+				
+				// Apply number of picks
+				$("#picks").prop('selectedIndex', settings.picks - 1);
+				
+				// Apply vanilla civs toggle
+				if (settings.vanillaCivsOnly) {
+					$('#slideThree').prop('checked', true);
+					$(".slideThree label").css({"left": "43px"});
+				} else {
+					$('#slideThree').prop('checked', false);
+					$(".slideThree label").css({"left": "3px"});
+				}
+				
+				// Apply lekmod bans toggle
+				if (settings.lekmodBans) {
+					$('#slideFour').prop('checked', true);
+					$(".slideFour label").css({"left": "43px"});
+				} else {
+					$('#slideFour').prop('checked', false);
+					$(".slideFour label").css({"left": "3px"});
+				}
+				
+				// Reset all civs first
+				$(".Akkad, .Aksum, .America, .Arabia, .Argentina, .Armenia, .Assyria, .Australia, .Austria, .Ayyubids, .Aztec, .Babylon, .Belgium, .Boers, .Bolivia, .Brazil, .Brunei, .Bulgaria, .Burma, .Byzantium, .Canada, .Carthage, .Celts, .Chile, .China, .Colombia, .Cuba, .Denmark, .Egypt, .England, .Ethiopia, .Finland, .France, .Franks, .Gaul, .Germany, .Gaul, .Georgia, .Golden, .Goths, .Greece, .Hittites, .Hungary, .Huns, .Inca, .India, .Ireland, .Indonesia, .Iroquois, .Israel, .Italy, .Japan, .Jerusalem, .Khmer, .Kilwa, .Kongo, .Korea, .Lithuania, .Macedonian, .Madagascar, .Manchuria, .Maori, .Maurya, .Maya, .Mexican, .Mongolia, .Moors, .Morocco, .Mysore, .Netherlands, .NewZealand, .Nabatea, .Normandy, .Norway, .Nubia, .Oman, .Ottomans, .Palmyra, .Persia, .Philippines, .Phoenician, .Poland, .Polynesia, .Portugal, .Prussian, .Romania, .Rome, .Russia, .Scotland, .Shoshone, .Siam, .Sioux, .Songhai, .Spain, .Sumeria, .Sweden, .Switzerland, .Tibet, .Timurids, .Tonga, .Turkey, .Ukraine, .UAE, .Vatican, .Venetian, .Vietnam, .Wales, .Yugoslavia, .Zimbabwe, .Zulu")
+					.css({"text-decoration": "none", "background-color": "#8d6309"})
+					.fadeTo("fast", 1);
+
+				// Apply banned civs
+				bannedCivs = 0;
+				$.each(settings.bannedCivs, function(civ, enabled) {
+					allCivs[civ] = enabled;
+					if (!enabled) {
+						bannedCivs++;
+						$('.' + civ)
+							.css({"text-decoration": "line-through", "background-color": "#5f4309"})
+							.fadeTo("fast", 0.25);
+					}
+				});
+
+				// Update the header count
+				updateBanned(totalCivs, bannedCivs);
+
+			} catch (error) {
+				console.error('Error importing settings:', error);
+				alert('Error importing settings. Please check if the file is valid.');
+			}
+		};
+		reader.readAsText(file);
+		
+		// Reset the input so the same file can be selected again
+		$(this).val('');
+	});  
 
 	function updateBanned(totalAllowed, totalBanned) {
 		var titleHTML  = (totalAllowed - totalBanned) + " Allowed - " + totalBanned + " Banned";

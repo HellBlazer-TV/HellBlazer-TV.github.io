@@ -187,6 +187,10 @@ input, select {
 	
 }
 
+#importFile {
+    display: none;
+}
+
 .drafterdropbox {
 	font-family: Montserrat;
 	border-radius: 15px;
