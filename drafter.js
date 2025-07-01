@@ -1,4 +1,16 @@
-﻿$(document).ready(function() {
+﻿// Check if jQuery is loaded
+if (typeof jQuery === 'undefined') {
+	console.error('jQuery is not loaded!');
+	// Try to show an error message
+	window.onload = function() {
+		var headline = document.querySelector('.selectorheadline');
+		if (headline) {
+			headline.innerHTML = 'Error: jQuery not loaded. Please refresh the page.';
+		}
+	};
+} else {
+	$(document).ready(function() {
+		console.log('Document ready, starting initialization...');
 
 	// Civilization data with tags and display names
 	var civData = {
@@ -115,29 +127,53 @@
 
 	// Generate civilization table automatically
 	function generateCivTable() {
-		var civKeys = Object.keys(civData);
-		var civsPerRow = 8;
-		var tableHTML = "";
-		
-		for (var i = 0; i < civKeys.length; i += civsPerRow) {
-			tableHTML += "<tr>";
-			for (var j = i; j < i + civsPerRow && j < civKeys.length; j++) {
-				var civKey = civKeys[j];
+		try {
+			console.log('Starting generateCivTable...');
+			var civKeys = Object.keys(civData);
+			console.log('Found ' + civKeys.length + ' civilizations');
+			
+			var civsPerRow = 8;
+			var tableHTML = "";
+			
+			for (var i = 0; i < civKeys.length; i += civsPerRow) {
+				tableHTML += "<tr>";
+				for (var j = i; j < i + civsPerRow && j < civKeys.length; j++) {
+									var civKey = civKeys[j];
 				var civInfo = civData[civKey];
 				var imageName = civKey.toLowerCase();
 				
 				tableHTML += '<td class="' + civKey + '">';
-				tableHTML += '<img src="img/' + imageName + '.png"></img>';
-				tableHTML += civInfo.displayName;
-				tableHTML += '</td>';
+				tableHTML += '<img src="img/' + imageName + '.png" alt="' + civInfo.displayName + '">';
+					tableHTML += civInfo.displayName;
+					tableHTML += '</td>';
+				}
+				tableHTML += "</tr>";
 			}
-			tableHTML += "</tr>";
+			
+			console.log('Generated table HTML, length:', tableHTML.length);
+			
+			// Make sure the element exists before trying to update it
+			if ($('#civilizations').length > 0) {
+				$('#civilizations').html(tableHTML);
+				console.log('Table updated successfully');
+			} else {
+				console.error('Could not find #civilizations element');
+			}
+			
+			// Update the count in the header
+			if ($('.selectorheadline').length > 0) {
+				$('.selectorheadline').html(totalCivs + ' Allowed - 0 Banned');
+			} else {
+				console.error('Could not find .selectorheadline element');
+			}
+			
+		} catch (error) {
+			console.error('Error in generateCivTable:', error);
+			// Fallback: show error message
+			if ($('.selectorheadline').length > 0) {
+				$('.selectorheadline').html('Error loading civilizations. Please refresh the page.');
+			}
 		}
-		
-		$('#civilizations').html(tableHTML);
-		
-		// Update the count in the header
-		$('.selectorheadline').html(totalCivs + ' Allowed - 0 Banned');
 	}
 
 	//var America = {Enabled:false};
@@ -152,8 +188,10 @@
 	var titleHTML = "";
 	var allclicked = false;
 
-	// Generate the civilization table
-	generateCivTable();
+	// Generate the civilization table after a small delay to ensure DOM is ready
+	setTimeout(function() {
+		generateCivTable();
+	}, 100);
 
 	// Helper function to get civs by tag
 	function getCivsByTag(tag) {
@@ -664,5 +702,6 @@
 			}
 		}
 	});
-});				
+	});
+}			
 
