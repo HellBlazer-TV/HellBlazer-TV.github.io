@@ -191,7 +191,65 @@ if (typeof jQuery === 'undefined') {
 	// Generate the civilization table after a small delay to ensure DOM is ready
 	setTimeout(function() {
 		generateCivTable();
+		updateGuaranteedOptions();
 	}, 100);
+
+	// Function to update guaranteed civs dropdown options based on number of picks
+	function updateGuaranteedOptions() {
+		var totalPicks = $("#picks option:selected").index() + 1;
+		var currentCoastalsText = $("#coastals option:selected").text();
+		var currentInlandsText = $("#inlands option:selected").text();
+		
+		// Clear existing options
+		$('#coastals').empty();
+		$('#inlands').empty();
+		
+		// Add "Random" option first
+		$('#coastals').append('<option value="-1">Random</option>');
+		$('#inlands').append('<option value="-1">Random</option>');
+		
+		// Add options from 1 to totalPicks
+		for (var i = 1; i <= totalPicks; i++) {
+			var coastalText = i === 1 ? '1 Coastal' : i + ' Coastals';
+			var inlandText = i === 1 ? '1 Inland' : i + ' Inlands';
+			
+			$('#coastals').append('<option value="' + i + '">' + coastalText + '</option>');
+			$('#inlands').append('<option value="' + i + '">' + inlandText + '</option>');
+		}
+		
+		// Try to restore previous selections by text, otherwise default to "Random"
+		var coastalRestored = false;
+		var inlandRestored = false;
+		
+		$('#coastals option').each(function() {
+			if ($(this).text() === currentCoastalsText) {
+				$(this).prop('selected', true);
+				coastalRestored = true;
+				return false;
+			}
+		});
+		
+		$('#inlands option').each(function() {
+			if ($(this).text() === currentInlandsText) {
+				$(this).prop('selected', true);
+				inlandRestored = true;
+				return false;
+			}
+		});
+		
+		// If we couldn't restore, default to "Random"
+		if (!coastalRestored) {
+			$('#coastals').prop('selectedIndex', 0);
+		}
+		if (!inlandRestored) {
+			$('#inlands').prop('selectedIndex', 0);
+		}
+	}
+
+	// Update guaranteed options when picks dropdown changes
+	$('#picks').change(function() {
+		updateGuaranteedOptions();
+	});
 
 	// Helper function to get civs by tag
 	function getCivsByTag(tag) {
@@ -377,16 +435,7 @@ if (typeof jQuery === 'undefined') {
         }      
     });
 
-	// Add coastal requirement toggle
-	$('#slideFive').change(function() {
-		if(this.checked) {
-			$(".slideFive label").css({"left": "43px"});
-			$(this).prop("checked");
-		} else {
-			$(".slideFive label").css({"left": "3px"});
-			$(this).prop("unchecked");
-		}
-	});
+
 
 	// Export settings functionality
 	$('#export').click(function() {
@@ -394,9 +443,10 @@ if (typeof jQuery === 'undefined') {
 		var settings = {
 			players: $("#gameplayers option:selected").index() + 1,
 			picks: $("#picks option:selected").index() + 1,
+			guaranteedCoastals: $("#coastals option:selected").val(),
+			guaranteedInlands: $("#inlands option:selected").val(),
 			vanillaCivsOnly: $('#slideThree').is(':checked'),
 			lekmodBans: $('#slideFour').is(':checked'),
-			alwaysIncludeCoastals: $('#slideFive').is(':checked'),
 			bannedCivs: {}
 		};
 
@@ -435,6 +485,22 @@ if (typeof jQuery === 'undefined') {
 				// Apply number of picks
 				$("#picks").prop('selectedIndex', settings.picks - 1);
 				
+				// Update guaranteed options based on new picks selection
+				updateGuaranteedOptions();
+				
+				// Apply guaranteed coastals and inlands (with defaults for backward compatibility)
+				if (settings.guaranteedCoastals !== undefined) {
+					$("#coastals").val(settings.guaranteedCoastals);
+				} else {
+					$("#coastals").val("-1"); // Default to Random
+				}
+				
+				if (settings.guaranteedInlands !== undefined) {
+					$("#inlands").val(settings.guaranteedInlands);
+				} else {
+					$("#inlands").val("-1"); // Default to Random
+				}
+				
 				// Apply vanilla civs toggle
 				if (settings.vanillaCivsOnly) {
 					$('#slideThree').prop('checked', true);
@@ -451,15 +517,6 @@ if (typeof jQuery === 'undefined') {
 				} else {
 					$('#slideFour').prop('checked', false);
 					$(".slideFour label").css({"left": "3px"});
-				}
-				
-				// Apply coastal requirement toggle
-				if (settings.alwaysIncludeCoastals) {
-					$('#slideFive').prop('checked', true);
-					$(".slideFive label").css({"left": "43px"});
-				} else {
-					$('#slideFive').prop('checked', false);
-					$(".slideFive label").css({"left": "3px"});
 				}
 				
 				// Reset all civs first
@@ -509,21 +566,29 @@ if (typeof jQuery === 'undefined') {
   		var missingCivs = 0;
   		var allowedCivs = [];
   		var allowedCoastalCivs = [];
+  		var allowedInlandCivs = [];
   		var playerPicks = {};
-  		var requireCoastals = $('#slideFive').is(':checked');
+  		var guaranteedCoastals = parseInt($("#coastals option:selected").val());
+  		var guaranteedInlands = parseInt($("#inlands option:selected").val());
+  		
+  		// Convert -1 (Random) to 0 for calculations
+  		if (guaranteedCoastals === -1) guaranteedCoastals = 0;
+  		if (guaranteedInlands === -1) guaranteedInlands = 0;
   		
   		//clear any previous results
   		$("#results").empty();
   		
-  		//check how many civs are enabled and separate coastal civs
+  		//check how many civs are enabled and separate coastal and inland civs
   		$.each(allCivs, function (index, value) {
 			if (allCivs[index] == true) {
 				allowedCivs[enabledCivs] = index;
 				enabledCivs++;
 				
-				// Check if this civ is coastal
+				// Check if this civ is coastal or inland
 				if (civData[index].tags.includes("coastal")) {
 					allowedCoastalCivs.push(index);
+				} else {
+					allowedInlandCivs.push(index);
 				}
 			};
   		});
@@ -537,85 +602,87 @@ if (typeof jQuery === 'undefined') {
 			missingCivs = neededCivs - enabledCivs;
 			$("#results").html("<p class='drawerror'>There are not enough available civilizations to make the draw!</br>Please unban at least another " + missingCivs +" civilizations and try again!</p>");
 
-		// check if we have enough coastal civs when required
-		} else if (requireCoastals && allowedCoastalCivs.length < players) {
-			$("#results").html("<p class='drawerror'>Not enough coastal civilizations available! Need at least " + players + " coastal civs for each player, but only " + allowedCoastalCivs.length + " are available.</br>Please unban more coastal civilizations or disable the 'Always include coastals' option.</p>");
+		// check if guaranteed civs per player exceed picks per player
+		} else if (guaranteedCoastals + guaranteedInlands > rndpicks) {
+			$("#results").html("<p class='drawerror'>The sum of guaranteed coastals (" + guaranteedCoastals + ") and guaranteed inlands (" + guaranteedInlands + ") per player exceeds the number of picks per player (" + rndpicks + ")!</br>Please reduce the guaranteed amounts.</p>");
+
+		// check if we have enough coastal civs for all players
+		} else if (guaranteedCoastals > 0 && allowedCoastalCivs.length < guaranteedCoastals * players) {
+			$("#results").html("<p class='drawerror'>Not enough coastal civilizations available! Need at least " + (guaranteedCoastals * players) + " coastal civs for " + players + " players with " + guaranteedCoastals + " guaranteed each, but only " + allowedCoastalCivs.length + " are available.</br>Please unban more coastal civilizations or reduce the guaranteed coastal amount.</p>");
+
+		// check if we have enough inland civs for all players
+		} else if (guaranteedInlands > 0 && allowedInlandCivs.length < guaranteedInlands * players) {
+			$("#results").html("<p class='drawerror'>Not enough inland civilizations available! Need at least " + (guaranteedInlands * players) + " inland civs for " + players + " players with " + guaranteedInlands + " guaranteed each, but only " + allowedInlandCivs.length + " are available.</br>Please unban more inland civilizations or reduce the guaranteed inland amount.</p>");
 
 		// errors handled we can now make the draw
 		} else {
 		
-			// pick civs for each player
-			var i;
-			var k;
-			var picksHTML = "<p class='rescopied'>Draft results have been copied to clipboard</p>";
-			var resCopy = ""
-			
-			picksHTML = picksHTML + "<table class='drawresults'>";
-
-			$("#results").css("text-align", "left");
-			
 			// Create working copies of arrays
 			var workingAllowedCivs = allowedCivs.slice();
 			var workingCoastalCivs = allowedCoastalCivs.slice();
+			var workingInlandCivs = allowedInlandCivs.slice();
+			
+			var picksHTML = "<p class='rescopied'>Draft results have been copied to clipboard</p>";
+			var resCopy = "";
+			
+			picksHTML = picksHTML + "<table class='drawresults'>";
+			$("#results").css("text-align", "left");
 			
 			//loop thru each player
-			for (i = 1; i <= players; i++) { 
+			for (var i = 1; i <= players; i++) { 
 				
 				//add this player to the results HTML
 				picksHTML = picksHTML + "<tr><td>Player " + i + " choose from:</td>";
 				resCopy = resCopy  + "Player " + i + " choose from: - ";
 				
-				var playerHasCoastal = false;
+				var playerCoastalsNeeded = guaranteedCoastals;
+				var playerInlandsNeeded = guaranteedInlands;
 				
 				//loop however many picks are needed
-				for (k = 1; k <= rndpicks; k++) {
+				for (var k = 1; k <= rndpicks; k++) {
 					var selectedCiv;
 					var selectedCivIndex;
-					var availablePool;
 					
-					// If we need coastals and this player doesn't have one yet, force a coastal on first pick
-					if (requireCoastals && !playerHasCoastal && k === 1 && workingCoastalCivs.length > 0) {
-						// Force pick a coastal civ on first pick
+					// First priority: Select guaranteed coastal civs
+					if (playerCoastalsNeeded > 0 && workingCoastalCivs.length > 0) {
 						selectedCivIndex = Math.floor(Math.random() * workingCoastalCivs.length);
 						selectedCiv = workingCoastalCivs[selectedCivIndex];
-						playerHasCoastal = true;
+						playerCoastalsNeeded--;
 						
 						// Remove from coastal array
 						workingCoastalCivs.splice(selectedCivIndex, 1);
-					} else {
-						// Create available pool excluding coastal civs if player already has one
-						if (requireCoastals && playerHasCoastal) {
-							// Player already has a coastal, exclude coastal civs from selection
-							availablePool = workingAllowedCivs.filter(function(civ) {
-								return !civData[civ].tags.includes("coastal");
-							});
-						} else {
-							// Player doesn't have coastal requirement or doesn't have one yet
-							availablePool = workingAllowedCivs.slice();
-						}
 						
-						// If we need coastals, this player doesn't have one, and this is the last pick, force coastal
-						if (requireCoastals && !playerHasCoastal && k === rndpicks && workingCoastalCivs.length > 0) {
-							// Force pick a coastal civ on last pick
-							selectedCivIndex = Math.floor(Math.random() * workingCoastalCivs.length);
-							selectedCiv = workingCoastalCivs[selectedCivIndex];
-							playerHasCoastal = true;
-							
-							// Remove from coastal array
-							workingCoastalCivs.splice(selectedCivIndex, 1);
-						} else {
-							// Pick from available pool
-							selectedCivIndex = Math.floor(Math.random() * availablePool.length);
-							selectedCiv = availablePool[selectedCivIndex];
-							
-							// Check if this happens to be coastal (only matters if player doesn't have coastal requirement)
-							if (!requireCoastals && civData[selectedCiv].tags.includes("coastal")) {
-								// Remove from coastal array if it's there
-								var coastalIndex = workingCoastalCivs.indexOf(selectedCiv);
-								if (coastalIndex > -1) {
-									workingCoastalCivs.splice(coastalIndex, 1);
-								}
-							}
+					// Second priority: Select guaranteed inland civs
+					} else if (playerInlandsNeeded > 0 && workingInlandCivs.length > 0) {
+						selectedCivIndex = Math.floor(Math.random() * workingInlandCivs.length);
+						selectedCiv = workingInlandCivs[selectedCivIndex];
+						playerInlandsNeeded--;
+						
+						// Remove from inland array
+						workingInlandCivs.splice(selectedCivIndex, 1);
+						
+					// Third priority: Select from any remaining civs
+					} else if (workingAllowedCivs.length > 0) {
+						selectedCivIndex = Math.floor(Math.random() * workingAllowedCivs.length);
+						selectedCiv = workingAllowedCivs[selectedCivIndex];
+					}
+					
+					// Remove selected civ from main allowed list
+					var mainCivIndex = workingAllowedCivs.indexOf(selectedCiv);
+					if (mainCivIndex > -1) {
+						workingAllowedCivs.splice(mainCivIndex, 1);
+					}
+					
+					// Also remove from coastal/inland arrays if it was selected randomly
+					if (civData[selectedCiv].tags.includes("coastal")) {
+						var coastalIndex = workingCoastalCivs.indexOf(selectedCiv);
+						if (coastalIndex > -1) {
+							workingCoastalCivs.splice(coastalIndex, 1);
+						}
+					} else {
+						var inlandIndex = workingInlandCivs.indexOf(selectedCiv);
+						if (inlandIndex > -1) {
+							workingInlandCivs.splice(inlandIndex, 1);
 						}
 					}
 					
@@ -627,12 +694,6 @@ if (typeof jQuery === 'undefined') {
 					} else {
 						picksHTML = picksHTML + "<td>";
 						resCopy = resCopy  + civData[selectedCiv].displayName + "\r\n";
-					}
-					
-					// Remove selected civ from working array
-					var mainCivIndex = workingAllowedCivs.indexOf(selectedCiv);
-					if (mainCivIndex > -1) {
-						workingAllowedCivs.splice(mainCivIndex, 1);
 					}
 				}
 				

@@ -21,41 +21,72 @@
 		</div>
 		
 		<form method="post">
-			<div id="playerdetails">
-			    <ul>
-			        <li>
-			            <label>Number of Players in Game</label>
-			            <select class="drafterdropbox" id="gameplayers">
-			                <option>1 Player</option>
-			                <option>2 Players</option>
-			                <option>3 Players</option>
-			                <option>4 Players</option>
-			                <option>5 Players</option>
-			                <option selected="selected">6 Players</option>
-			                <option>7 Players</option>
-			                <option>8 Players</option>
-			                <option>9 Players</option>
-			                <option>10 Players</option>
-			                <option>11 Players</option>
-			                <option>12 Players</option>
+			<div id="settings-container">
+				<div id="playerdetails">
+				    <h3>Game Settings</h3>
+				    <ul>
+				        <li>
+				            <label>Number of Players in Game</label>
+				            <select class="drafterdropbox" id="gameplayers">
+				                <option>1 Player</option>
+				                <option>2 Players</option>
+				                <option>3 Players</option>
+				                <option>4 Players</option>
+				                <option>5 Players</option>
+				                <option selected="selected">6 Players</option>
+				                <option>7 Players</option>
+				                <option>8 Players</option>
+				                <option>9 Players</option>
+				                <option>10 Players</option>
+				                <option>11 Players</option>
+				                <option>12 Players</option>
+				            </select>
+				        </li>
+				        <li>
+				            <label>Number of Random Picks</label>
+				            <select class="drafterdropbox" id="picks">
+				                <option>1 Pick</option>
+				                <option>2 Picks</option>
+				                <option>3 Picks</option>
+				                <option>4 Picks</option>
+				                <option selected="selected">5 Picks</option>
+				                <option>6 Picks</option>
+				                <option>7 Picks</option>
+				                <option>8 Picks</option>
+				                <option>9 Picks</option>
+				                <option>10 Picks</option>
+				            </select>
+				        </li>
+				    </ul>
+				</div>
+				
+				<div id="guaranteedetails">
+				    <h3>Guaranteed Civs</h3>
+				    <ul>
+				        			        <li>
+			            <label>Guaranteed Amount of Coastals (per player)</label>
+			            <select class="drafterdropbox" id="coastals">
+			                <option selected="selected">Random</option>
+			                <option>1 Coastal</option>
+			                <option>2 Coastals</option>
+			                <option>3 Coastals</option>
+			                <option>4 Coastals</option>
+			                <option>5 Coastals</option>
 			            </select>
 			        </li>
 			        <li>
-			            <label>Number of Random Picks</label>
-			            <select class="drafterdropbox" id="picks">
-			                <option>1 Pick</option>
-			                <option>2 Picks</option>
-			                <option>3 Picks</option>
-			                <option>4 Picks</option>
-			                <option selected="selected">5 Picks</option>
-			                <option>6 Picks</option>
-			                <option>7 Picks</option>
-			                <option>8 Picks</option>
-			                <option>9 Picks</option>
-			                <option>10 Picks</option>
+			            <label>Guaranteed Amount of Inlands (per player)</label>
+			            <select class="drafterdropbox" id="inlands">
+			                <option selected="selected">Random</option>
+			                <option>1 Inland</option>
+			                <option>2 Inlands</option>
+			                <option>3 Inlands</option>
+			                <option>4 Inlands</option>
+			                <option>5 Inlands</option>
 			            </select>
 			        </li>
-			    </ul>
+				    </ul>
+				</div>
 			</div>
 			
 			<div id="civselections">
@@ -83,14 +114,7 @@
 
 				</div>
 				
-				<div id="coastalrequirement">
-					<label>Always Include Coastals</label>
-					<div class="slideFive">  
-						<input type="checkbox" value="None" id="slideFive" name="check" unchecked />
-						<label for="slideFive"></label>
-					</div>
 
-				</div>
 					
 				<div id="buttons">
 					<input class="submitbutton" name="create" id="create" type="button" value="Create Draft" />
