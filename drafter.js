@@ -14,115 +14,118 @@ if (typeof jQuery === 'undefined') {
 
 	// Civilization data with tags and display names
 	var civData = {
-		"Akkad": { tags: ["modded"], displayName: "Akkad" },
-		"Aksum": { tags: ["modded"], displayName: "Aksum" },
+		"Akkad": { tags: ["modded", "seasonal"], displayName: "Akkad" },
+		"Aksum": { tags: ["modded", "seasonal"], displayName: "Aksum" },
 		"America": { tags: ["vanilla"], displayName: "America" },
 		"Arabia": { tags: ["vanilla"], displayName: "Arabia" },
-		"Argentina": { tags: ["modded"], displayName: "Argentina" },
+		"Argentina": { tags: ["modded", "seasonal"], displayName: "Argentina" },
 		"Armenia": { tags: ["modded"], displayName: "Armenia" },
-		"Assyria": { tags: ["vanilla"], displayName: "Assyria" },
-		"Australia": { tags: ["modded", "coastal"], displayName: "Australia" },
+		"Assyria": { tags: ["vanilla", "seasonal"], displayName: "Assyria" },
+		"Australia": { tags: ["modded", "coastal", "seasonal"], displayName: "Australia" },
 		"Austria": { tags: ["vanilla"], displayName: "Austria" },
-		"Ayyubids": { tags: ["modded"], displayName: "Ayyubids" },
+		"Ayyubids": { tags: ["modded", "seasonal"], displayName: "Ayyubids" },
 		"Aztec": { tags: ["vanilla"], displayName: "Aztec" },
-		"Babylon": { tags: ["vanilla"], displayName: "Babylon" },
-		"Belgium": { tags: ["modded"], displayName: "Belgium" },
+		"Babylon": { tags: ["vanilla", "seasonal"], displayName: "Babylon" },
+		"Belgium": { tags: ["modded", "seasonal"], displayName: "Belgium" },
 		"Boers": { tags: ["modded"], displayName: "Boers" },
-		"Bolivia": { tags: ["modded"], displayName: "Bolivia" },
+		"Bolivia": { tags: ["modded", "seasonal"], displayName: "Bolivia" },
 		"Brazil": { tags: ["vanilla"], displayName: "Brazil" },
-		"Brunei": { tags: ["modded", "coastal"], displayName: "Brunei" },
-		"Bulgaria": { tags: ["modded"], displayName: "Bulgaria" },
-		"Burma": { tags: ["modded"], displayName: "Burma" },
+		"Brunei": { tags: ["modded", "coastal", "seasonal"], displayName: "Brunei" },
+		"Bulgaria": { tags: ["modded", "seasonal"], displayName: "Bulgaria" },
+		"Burma": { tags: ["modded", "seasonal"], displayName: "Burma" },
 		"Byzantium": { tags: ["vanilla"], displayName: "Byzantium" },
-		"Canada": { tags: ["modded"], displayName: "Canada" },
+		"Canada": { tags: ["modded", "seasonal"], displayName: "Canada" },
 		"Carthage": { tags: ["vanilla", "coastal"], displayName: "Carthage" },
 		"Celts": { tags: ["vanilla"], displayName: "Celts" },
 		"Chile": { tags: ["modded", "coastal"], displayName: "Chile" },
-		"China": { tags: ["vanilla"], displayName: "China" },
+		"China": { tags: ["vanilla", "seasonal"], displayName: "China" },
 		"Colombia": { tags: ["modded"], displayName: "Colombia" },
-		"Cuba": { tags: ["modded"], displayName: "Cuba" },
-		"Denmark": { tags: ["vanilla", "coastal"], displayName: "Denmark" },
-		"Egypt": { tags: ["vanilla"], displayName: "Egypt" },
+		"Cuba": { tags: ["modded", "seasonal"], displayName: "Cuba" },
+		"Denmark": { tags: ["vanilla", "coastal", "seasonal"], displayName: "Denmark" },
+		"Egypt": { tags: ["vanilla", "seasonal"], displayName: "Egypt" },
 		"England": { tags: ["vanilla", "coastal"], displayName: "England" },
 		"Ethiopia": { tags: ["vanilla"], displayName: "Ethiopia" },
-		"Finland": { tags: ["modded"], displayName: "Finland" },
+		"Finland": { tags: ["modded", "seasonal"], displayName: "Finland" },
 		"France": { tags: ["vanilla"], displayName: "France" },
-		"Franks": { tags: ["modded"], displayName: "Franks" },
-		"Gaul": { tags: ["modded"], displayName: "Gaul" },
+		"Franks": { tags: ["modded", "seasonal"], displayName: "Franks" },
+		"Gaul": { tags: ["modded", "seasonal"], displayName: "Gaul" },
 		"Georgia": { tags: ["modded"], displayName: "Georgia" },
-		"Germany": { tags: ["vanilla"], displayName: "Germany" },
-		"Golden": { tags: ["modded"], displayName: "Golden Horde" },
-		"Goths": { tags: ["modded"], displayName: "Goths" },
+		"Germany": { tags: ["vanilla", "seasonal"], displayName: "Germany" },
+		"Golden": { tags: ["modded", "seasonal"], displayName: "Golden Horde" },
+		"Goths": { tags: ["modded", "seasonal"], displayName: "Goths" },
 		"Greece": { tags: ["vanilla"], displayName: "Greece" },
 		"Hittites": { tags: ["modded"], displayName: "Hittites" },
 		"Hungary": { tags: ["modded"], displayName: "Hungary" },
 		"Huns": { tags: ["vanilla"], displayName: "Huns" },
-		"Inca": { tags: ["vanilla"], displayName: "Inca" },
+		"Inca": { tags: ["vanilla", "seasonal"], displayName: "Inca" },
 		"India": { tags: ["vanilla"], displayName: "India" },
-		"Indonesia": { tags: ["vanilla", "coastal"], displayName: "Indonesia" },
-		"Ireland": { tags: ["modded"], displayName: "Ireland" },
-		"Iroquois": { tags: ["vanilla"], displayName: "Iroquois" },
+		"Indonesia": { tags: ["vanilla", "coastal", "seasonal"], displayName: "Indonesia" },
+		"Ireland": { tags: ["modded", "seasonal"], displayName: "Ireland" },
+		"Iroquois": { tags: ["vanilla", "seasonal"], displayName: "Iroquois" },
 		"Israel": { tags: ["modded"], displayName: "Israel" },
 		"Italy": { tags: ["modded"], displayName: "Italy" },
 		"Japan": { tags: ["vanilla", "coastal"], displayName: "Japan" },
 		"Jerusalem": { tags: ["modded"], displayName: "Jerusalem" },
 		"Khmer": { tags: ["modded"], displayName: "Khmer" },
-		"Kilwa": { tags: ["modded", "coastal"], displayName: "Kilwa" },
-		"Kongo": { tags: ["modded"], displayName: "Kongo" },
-		"Korea": { tags: ["vanilla", "coastal"], displayName: "Korea" },
+		"Kilwa": { tags: ["modded", "coastal", "seasonal"], displayName: "Kilwa" },
+		"Kongo": { tags: ["modded", "seasonal"], displayName: "Kongo" },
+		"Korea": { tags: ["vanilla", "coastal", "seasonal"], displayName: "Korea" },
 		"Lithuania": { tags: ["modded"], displayName: "Lithuania" },
 		"Macedonian": { tags: ["modded"], displayName: "Macedonia" },
-		"Madagascar": { tags: ["modded"], displayName: "Madagascar" },
-		"Manchuria": { tags: ["modded"], displayName: "Manchuria" },
-		"Maori": { tags: ["modded"], displayName: "Maori" },
-		"Maurya": { tags: ["modded"], displayName: "Maurya" },
+		"Madagascar": { tags: ["modded", "seasonal"], displayName: "Madagascar" },
+		"Manchuria": { tags: ["modded", "seasonal"], displayName: "Manchuria" },
+		"Maori": { tags: ["modded", "seasonal"], displayName: "Maori" },
+		"Maurya": { tags: ["modded", "seasonal"], displayName: "Maurya" },
 		"Maya": { tags: ["vanilla"], displayName: "Maya" },
-		"Mexican": { tags: ["modded"], displayName: "Mexico" },
+		"Mexican": { tags: ["modded", "seasonal"], displayName: "Mexico" },
 		"Mongolia": { tags: ["vanilla"], displayName: "Mongolia" },
 		"Moors": { tags: ["modded"], displayName: "Moors" },
 		"Morocco": { tags: ["vanilla"], displayName: "Morocco" },
-		"Mysore": { tags: ["modded"], displayName: "Mysore" },
-		"Netherlands": { tags: ["vanilla", "coastal"], displayName: "Netherlands" },
+		"Mysore": { tags: ["modded", "seasonal"], displayName: "Mysore" },
+		"Netherlands": { tags: ["vanilla", "coastal", "seasonal"], displayName: "Netherlands" },
 		"NewZealand": { tags: ["modded", "coastal"], displayName: "New Zealand" },
-		"Nabatea": { tags: ["modded"], displayName: "Nabatea" },
-		"Normandy": { tags: ["modded"], displayName: "Normandy" },
-		"Norway": { tags: ["modded", "coastal"], displayName: "Norway" },
+		"Nabatea": { tags: ["modded", "seasonal"], displayName: "Nabatea" },
+		"Normandy": { tags: ["modded", "seasonal"], displayName: "Normandy" },
+		"Norway": { tags: ["modded", "coastal", "seasonal"], displayName: "Norway" },
 		"Nubia": { tags: ["modded"], displayName: "Nubia" },
 		"Oman": { tags: ["modded", "coastal"], displayName: "Oman" },
-		"Ottomans": { tags: ["vanilla"], displayName: "Ottomans" },
+		"Ottomans": { tags: ["vanilla", "seasonal"], displayName: "Ottomans" },
 		"Palmyra": { tags: ["modded"], displayName: "Palmyra" },
-		"Persia": { tags: ["vanilla"], displayName: "Persia" },
+		"Persia": { tags: ["vanilla", "seasonal"], displayName: "Persia" },
 		"Philippines": { tags: ["modded", "coastal"], displayName: "Philippines" },
-		"Phoenician": { tags: ["modded", "coastal"], displayName: "Phoenician" },
-		"Poland": { tags: ["vanilla"], displayName: "Poland" },
+		"Phoenician": { tags: ["modded", "coastal", "seasonal"], displayName: "Phoenician" },
+		"Poland": { tags: ["vanilla", "seasonal"], displayName: "Poland" },
 		"Polynesia": { tags: ["vanilla", "coastal"], displayName: "Polynesia" },
-		"Portugal": { tags: ["vanilla", "coastal"], displayName: "Portugal" },
-		"Prussian": { tags: ["modded"], displayName: "Prussia" },
-		"Romania": { tags: ["modded"], displayName: "Romania" },
-		"Rome": { tags: ["vanilla"], displayName: "Rome" },
-		"Russia": { tags: ["vanilla"], displayName: "Russia" },
-		"Scotland": { tags: ["modded"], displayName: "Scotland" },
-		"Shoshone": { tags: ["vanilla"], displayName: "Shoshone" },
-		"Siam": { tags: ["vanilla"], displayName: "Siam" },
+		"Portugal": { tags: ["vanilla", "coastal", "seasonal"], displayName: "Portugal" },
+		"Prussian": { tags: ["modded", "seasonal"], displayName: "Prussia" },
+		"Romania": { tags: ["modded", "seasonal"], displayName: "Romania" },
+		"Rome": { tags: ["vanilla", "seasonal"], displayName: "Rome" },
+		"Russia": { tags: ["vanilla", "seasonal"], displayName: "Russia" },
+		"Scotland": { tags: ["modded", "seasonal"], displayName: "Scotland" },
+		"Shoshone": { tags: ["vanilla", "seasonal"], displayName: "Shoshone" },
+		"Siam": { tags: ["vanilla", "seasonal"], displayName: "Siam" },
 		"Sioux": { tags: ["modded"], displayName: "Sioux" },
-		"Songhai": { tags: ["vanilla"], displayName: "Songhai" },
+		"Songhai": { tags: ["vanilla", "seasonal"], displayName: "Songhai" },
 		"Spain": { tags: ["vanilla", "coastal"], displayName: "Spain" },
-		"Sumeria": { tags: ["modded"], displayName: "Sumeria" },
-		"Sweden": { tags: ["vanilla"], displayName: "Sweden" },
-		"Switzerland": { tags: ["modded"], displayName: "Switzerland" },
+		"Sumeria": { tags: ["modded", "seasonal"], displayName: "Sumeria" },
+		"Sweden": { tags: ["vanilla", "seasonal"], displayName: "Sweden" },
+		"Switzerland": { tags: ["modded", "seasonal"], displayName: "Switzerland" },
 		"Tibet": { tags: ["modded"], displayName: "Tibet" },
-		"Timurids": { tags: ["modded"], displayName: "Timurids" },
-		"Tonga": { tags: ["modded", "coastal"], displayName: "Tonga" },
+		"Timurids": { tags: ["modded", "seasonal"], displayName: "Timurids" },
+		"Tonga": { tags: ["modded", "coastal", "seasonal"], displayName: "Tonga" },
 		"Turkey": { tags: ["modded"], displayName: "Turkey" },
 		"Ukraine": { tags: ["modded"], displayName: "Ukraine" },
 		"UAE": { tags: ["modded", "coastal"], displayName: "UAE" },
-		"Vatican": { tags: ["modded"], displayName: "Vatican" },
+		"Vatican": { tags: ["modded", "seasonal"], displayName: "Vatican" },
 		"Venetian": { tags: ["modded", "coastal"], displayName: "Venice" },
 		"Vietnam": { tags: ["modded"], displayName: "Vietnam" },
-		"Wales": { tags: ["modded"], displayName: "Wales" },
+		"Wales": { tags: ["modded", "seasonal"], displayName: "Wales" },
 		"Yugoslavia": { tags: ["modded"], displayName: "Yugoslavia" },
 		"Zimbabwe": { tags: ["modded"], displayName: "Zimbabwe" },
-		"Zulu": { tags: ["vanilla"], displayName: "Zulu" }
+		"Zulu": { tags: ["vanilla"], displayName: "Zulu" },
+		"Tunisia": { tags: ["modded", "coastal"], displayName: "Tunisia" },
+		"Czechia": { tags: ["modded"], displayName: "Czechia" },
+		"Mughals": { tags: ["modded"], displayName: "Mughals" }
 	};
 
 	// Generate civilization table automatically
@@ -131,6 +134,11 @@ if (typeof jQuery === 'undefined') {
 			console.log('Starting generateCivTable...');
 			var civKeys = Object.keys(civData);
 			console.log('Found ' + civKeys.length + ' civilizations');
+			
+			// Sort civilizations alphabetically by display name
+			civKeys.sort(function(a, b) {
+				return civData[a].displayName.localeCompare(civData[b].displayName);
+			});
 			
 			var civsPerRow = 8;
 			var tableHTML = "";
@@ -268,11 +276,11 @@ if (typeof jQuery === 'undefined') {
 				
 				if (enable) {
 					$elem.css("text-decoration", "none");
-					$elem.css("background-color", "#8d6309");
+					$elem.css("background-color", "");
 					$elem.fadeTo("slow", 1);
 					bannedCivs--;
 				} else {
-					$elem.css("background-color", "#5f4309");
+					$elem.css("background-color", "rgba(7, 19, 5, 0)");
 					$elem.fadeTo("slow", 0.25, function() {
 						$elem.css("text-decoration", "line-through");
 					});
@@ -289,12 +297,12 @@ if (typeof jQuery === 'undefined') {
 		if ( !$(this).is(':animated') ) {
 			if ($(this).css('opacity') < 1) {
 				$(this).css("text-decoration", "none");
-				$(this).css("background-color", "#8d6309");
+				$(this).css("background-color", "");
 				$(this).fadeTo( "slow" , 1, function() {});
 				allCivs[this.className] = true;
 				bannedCivs--;
 			} else {
-				$(this).css("background-color", "#5f4309");
+				$(this).css("background-color", "rgba(7, 19, 5, 0)");
 				$(this).fadeTo( "slow" , 0.25, function() {$(this).css("text-decoration", "line-through");});
 				allCivs[this.className] = false;
 				bannedCivs++;
@@ -319,7 +327,7 @@ if (typeof jQuery === 'undefined') {
 			var vanillaCivs = getCivsByTag("vanilla");
 			vanillaCivs.forEach(function(civ) {
 				var $elem = $('.' + civ);
-				$elem.css({"text-decoration": "none", "background-color": "#8d6309"});
+				$elem.css({"text-decoration": "none", "background-color": ""});
 				$elem.fadeTo("slow", 1);
 			});
 
@@ -332,7 +340,7 @@ if (typeof jQuery === 'undefined') {
 		}
 		
 		// Update UI for all civs
-		$('#civilizations td').css({"text-decoration": "none", "background-color": "#8d6309"});
+		$('#civilizations td').css({"text-decoration": "none", "background-color": ""});
 		$('#civilizations td').fadeTo("slow", 1);
 		
 		if($('#slideThree').is(':checked') && bannedCivs > 0) {
@@ -340,7 +348,7 @@ if (typeof jQuery === 'undefined') {
 			var moddedCivs = getCivsByTag("modded");
 			moddedCivs.forEach(function(civ) {
 				var $elem = $('.' + civ);
-				$elem.css("background-color", "#5f4309");
+				$elem.css("background-color", "rgba(7, 19, 5, 0)");
 				$elem.fadeTo("slow", 0.25, function() {
 					$elem.css("text-decoration", "line-through");
 				});
@@ -355,7 +363,7 @@ if (typeof jQuery === 'undefined') {
 	//set all to disabled
 	$('#all').click(function() {
 		$('#civilizations td').fadeTo("slow", 0.25, function() {
-			$(this).css({"text-decoration": "line-through", "background-color": "#8d6309"});
+			$(this).css({"text-decoration": "line-through", "background-color": "rgba(7, 19, 5, 0)"});
 		});
 		
 		Object.keys(allCivs).forEach(function(civ) {
@@ -390,24 +398,11 @@ if (typeof jQuery === 'undefined') {
         }      
     });
 
-	//lekmod seasonal bans - keeping the original hardcoded list for now since I don't have the seasonal ban data
+	//lekmod seasonal bans
 	$('#slideFour').change(function() {
 		if(this.checked) {
 			if (allclicked == false) {
-				// This would need to be converted to use tags when you have the seasonal ban list
-				var seasonalBannedCivs = ["America", "Argentina", "Australia", "Austria", "Ayyubids", "Aztec", "Belgium", "Boers", "Bolivia", "Brazil", "Brunei", "Bulgaria", "Canada", "Chile", "Colombia", "Cuba", "England", "Ethiopia", "Finland", "France", "Franks", "Georgia", "Germany", "Golden", "Hungary", "Inca", "India", "Indonesia", "Ireland", "Iroquois", "Italy", "Japan", "Jerusalem", "Kilwa", "Korea", "Lithuania", "Manchuria", "Mexican", "Mongolia", "Moors", "Morocco", "Mysore", "Netherlands", "NewZealand", "Normandy", "Norway", "Oman", "Ottomans", "Philippines", "Poland", "Polynesia", "Portugal", "Prussian", "Romania", "Russia", "Scotland", "Shoshone", "Siam", "Songhai", "Spain", "Sweden", "Switzerland", "Timurids", "Tonga", "Turkey", "UAE", "Ukraine", "Vatican", "Venetian", "Vietnam", "Wales", "Yugoslavia", "Zulu"];
-				
-				seasonalBannedCivs.forEach(function(civ) {
-					if (allCivs[civ] === true) {
-						allCivs[civ] = false;
-						bannedCivs++;
-						var $elem = $('.' + civ);
-						$elem.fadeTo("slow", 0.25, function() {
-							$elem.css({"text-decoration": "line-through", "background-color": "#8d6309"});
-						});
-					}
-				});
-	
+				toggleCivsByTag("seasonal", false);
 				updateBanned(totalCivs, bannedCivs);
 			}
 			
@@ -415,18 +410,7 @@ if (typeof jQuery === 'undefined') {
 			$(this).prop("checked");
 		} else {
 			if (allclicked == false) {
-				var seasonalBannedCivs = ["America", "Argentina", "Australia", "Austria", "Ayyubids", "Aztec", "Belgium", "Boers", "Bolivia", "Brazil", "Brunei", "Bulgaria", "Canada", "Chile", "Colombia", "Cuba", "England", "Ethiopia", "Finland", "France", "Franks", "Georgia", "Germany", "Golden", "Hungary", "Inca", "India", "Indonesia", "Ireland", "Iroquois", "Italy", "Japan", "Jerusalem", "Kilwa", "Korea", "Lithuania", "Manchuria", "Mexican", "Mongolia", "Moors", "Morocco", "Mysore", "Netherlands", "NewZealand", "Normandy", "Norway", "Oman", "Ottomans", "Philippines", "Poland", "Polynesia", "Portugal", "Prussian", "Romania", "Russia", "Scotland", "Shoshone", "Siam", "Songhai", "Spain", "Sweden", "Switzerland", "Timurids", "Tonga", "Turkey", "UAE", "Ukraine", "Vatican", "Venetian", "Vietnam", "Wales", "Yugoslavia", "Zulu"];
-				
-				seasonalBannedCivs.forEach(function(civ) {
-					if (allCivs[civ] === false) {
-						allCivs[civ] = true;
-						bannedCivs--;
-						var $elem = $('.' + civ);
-						$elem.css({"text-decoration": "none", "background-color": "#8d6309"});
-						$elem.fadeTo("slow", 1);
-					}
-				});
-
+				toggleCivsByTag("seasonal", true);
 				updateBanned(totalCivs, bannedCivs);
 			}
 			
@@ -521,7 +505,7 @@ if (typeof jQuery === 'undefined') {
 				
 				// Reset all civs first
 				$('#civilizations td')
-					.css({"text-decoration": "none", "background-color": "#8d6309"})
+					.css({"text-decoration": "none", "background-color": ""})
 					.fadeTo("fast", 1);
 
 				// Apply banned civs
@@ -531,7 +515,7 @@ if (typeof jQuery === 'undefined') {
 					if (!enabled) {
 						bannedCivs++;
 						$('.' + civ)
-							.css({"text-decoration": "line-through", "background-color": "#5f4309"})
+							.css({"text-decoration": "line-through", "background-color": "rgba(7, 19, 5, 0)"})
 							.fadeTo("fast", 0.25);
 					}
 				});

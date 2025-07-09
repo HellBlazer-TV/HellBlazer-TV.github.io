@@ -2,9 +2,9 @@
 
 body {
 	font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
-	background-image: url('img/pyramids_background.png');
+	background-image: url('img/oracle_background.png');
 	background-repeat: no-repeat;
-	background-color: #8d6309;
+	background-color: #1a1306;
 	background-attachment: fixed;
 	background-size: cover;
 	margin: 0;
@@ -109,7 +109,7 @@ label {
 
 input, select {
 	display: inline-block;
-	background-color: #8d6309;
+	background-color: #0b3f1f;
 	border: solid 1px #BBC5CE;
 	margin: 0;
 	padding: 5px;
@@ -154,12 +154,12 @@ input, select {
 }
 
 #playerdetails {
-	background-color: rgb(91, 68, 29);
+	background-color: rgba(7, 19, 5, 0.8);
 	text-align: center;
 	padding: 15px 10px;
 	width: 300px;
 	height: 150px;
-	border: 1px solid #ffffff;
+	border: 2px solid #f5efa1;
 	border-radius: 25px;
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -178,12 +178,12 @@ input, select {
 }
 
 #guaranteedetails {
-	background-color: rgb(91, 68, 29);
+	background-color: rgba(7, 19, 5, 0.8);
 	text-align: center;
 	padding: 15px 10px;
 	width: 300px;
 	height: 150px;
-	border: 1px solid #ffffff;
+	border: 2px solid #f5efa1;
 	border-radius: 25px;
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -202,14 +202,14 @@ input, select {
 }
 
 #civselections {
-	border: 1px solid #ffffff;
+	border: 2px solid #f5efa1;
 	border-radius: 25px;
 	margin: auto;
 	margin-top: 30px;
 	left: 50%;
 	width: 1300px;
 	height: 580px;
-	background-color: #8d6309;
+	background-color: rgba(7, 19, 5, 0.8);
 	
 }
 
@@ -232,6 +232,7 @@ input, select {
 #civilizations td {
 	text-align: left;
 	vertical-align:middle;
+	background-color: transparent;
 	/*width: 50px;*/
 }
 
@@ -258,8 +259,8 @@ input, select {
 	text-align: center;
 	display: inline-block;
 	margin: 10px;
-	background-color: rgb(91, 68, 29);
-	border: 1px solid #ffffff;
+	background-color: rgba(7, 19, 5, 0.8);
+	border: 2px solid #f5efa1;
 	border-radius: 25px;
 	
 }
@@ -286,7 +287,7 @@ input, select {
 }
 
 #civilizations td:hover {
-	background-color: #7e5a0c;
+	background-color: rgba(111, 141, 106, 0.3);
 }
 
 #civilizations label {
@@ -371,7 +372,7 @@ input, select {
 .slideThree {
   width: 80px;
   height: 24px;
-  background: rgb(58, 44, 19);
+  background: rgba(7, 19, 5, 0.8);
   margin: 5px auto;
   position: relative;
   border-radius: 50px;
@@ -379,7 +380,7 @@ input, select {
 }
 .slideThree:after {
   content: 'OFF';
-  color: #000;
+  color: #f5efa1;
   position: absolute;
   right: 10px;
   z-index: 0;
@@ -389,7 +390,7 @@ input, select {
 }
 .slideThree:before {
   content: 'ON';
-  color: #27ae60;
+  color: #a1f5b2;
   position: absolute;
   left: 10px;
   z-index: 0;
@@ -405,8 +406,8 @@ input, select {
   top: 3px;
   left: 3px;
   z-index: 1;
-  background: #fcfff4;
-  background: linear-gradient(to bottom, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+  background: #f5efa1;
+  background: linear-gradient(to bottom, #f5efa1 0%, #dfe5d7 40%, #b3bead 100%);
   border-radius: 50px;
   transition: all 0.4s ease;
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
@@ -423,7 +424,7 @@ input, select {
 .slideFour {
 	width: 80px;
 	height: 24px;
-	background: rgb(58, 44, 19);
+	background: rgba(7, 19, 5, 0.8);
 	margin: 5px auto;
 	position: relative;
 	border-radius: 50px;
@@ -431,7 +432,7 @@ input, select {
   }
   .slideFour:after {
 	content: 'OFF';
-	color: #000;
+	color: #f5efa1;
 	position: absolute;
 	right: 10px;
 	z-index: 0;
@@ -441,7 +442,7 @@ input, select {
   }
   .slideFour:before {
 	content: 'ON';
-	color: #27ae60;
+	color: #a1f5b2;
 	position: absolute;
 	left: 10px;
 	z-index: 0;
@@ -457,8 +458,8 @@ input, select {
 	top: 3px;
 	left: 3px;
 	z-index: 1;
-	background: #fcfff4;
-	background: linear-gradient(to bottom, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+	background: #f5efa1;
+	background: linear-gradient(to bottom, #f5efa1 0%, #dfe5d7 40%, #b3bead 100%);
 	border-radius: 50px;
 	transition: all 0.4s ease;
 	box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
