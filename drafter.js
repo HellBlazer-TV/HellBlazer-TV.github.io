@@ -13,6 +13,7 @@ if (typeof jQuery === 'undefined') {
 		console.log('Document ready, starting initialization...');
 
 	// Civilization data with tags and display names
+	// Seasonal tag means it is OUT of the seasonal pool -- Might need to reverse this ~ EAP
 	var civData = {
 		"Akkad": { tags: ["modded", "seasonal"], displayName: "Akkad" },
 		"Aksum": { tags: ["modded", "seasonal"], displayName: "Aksum" },
@@ -100,7 +101,7 @@ if (typeof jQuery === 'undefined') {
 		"Prussian": { tags: ["modded", "seasonal"], displayName: "Prussia" },
 		"Romania": { tags: ["modded", "seasonal"], displayName: "Romania" },
 		"Rome": { tags: ["vanilla", "seasonal"], displayName: "Rome" },
-		"Russia": { tags: ["vanilla", "seasonal"], displayName: "Russia" },
+		"Russia": { tags: ["vanilla"], displayName: "Russia" },
 		"Scotland": { tags: ["modded", "seasonal"], displayName: "Scotland" },
 		"Shoshone": { tags: ["vanilla", "seasonal"], displayName: "Shoshone" },
 		"Siam": { tags: ["vanilla", "seasonal"], displayName: "Siam" },
@@ -122,7 +123,7 @@ if (typeof jQuery === 'undefined') {
 		"Wales": { tags: ["modded", "seasonal"], displayName: "Wales" },
 		"Yugoslavia": { tags: ["modded"], displayName: "Yugoslavia" },
 		"Zimbabwe": { tags: ["modded"], displayName: "Zimbabwe" },
-		"Zulu": { tags: ["vanilla"], displayName: "Zulu" },
+		"Zulu": { tags: ["vanilla", "seasonal"], displayName: "Zulu" },
 		"Tunisia": { tags: ["modded", "coastal"], displayName: "Tunisia" },
 		"Czechia": { tags: ["modded"], displayName: "Czechia" },
 		"Mughals": { tags: ["modded"], displayName: "Mughals" }
